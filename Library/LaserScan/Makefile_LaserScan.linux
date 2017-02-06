@@ -1,0 +1,67 @@
+
+#
+#    Copyright 2010 University of Twente and Delft University of Technology
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+# Project: LaserScan
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -Dlinux -w -Wno-deprecated
+CC   = gcc.exe -Dlinux 
+WINDRES = windres.exe
+RES  = 
+NEWMAT_INC = -I ../../Foreign/newmat 
+ENLSIP_INC = -I ../../Foreign/ENLSIP
+NEWMAT_LIB = -lnewmat 
+ANN_INC = -I ../../Foreign/ANN/include/ANN 
+ANN_LIB = -lANN 
+LAS_INC = -I ../../Foreign/lastools/LASlib/inc -I ../../Foreign/lastools/LASzip/src
+OBJ  = obj/MgcCommand.o obj/LaserSegments.o obj/TextFileUtilities.o  obj/StripTransform.o obj/Adjustment.o obj/AdjustStrips.o obj/AnalyseErrors.o obj/BNF_io.o obj/Components.o obj/DataBoundsLaser.o obj/FilterCheck.o obj/FilterPoint.o obj/FilterPoints.o obj/ImagedData.o obj/LargeObjects.o obj/LaserBlock.o obj/LaserDataFiles.o obj/LaserMetaFile.o obj/LaserOctree.o obj/LaserPoint.o obj/LaserPoints.o obj/LaserPointsB.o obj/LaserPointsInfo.o obj/LaserPyramid.o obj/LaserScanLine.o obj/LaserScanLines.o obj/LaserScanner.o obj/LaserSubUnit.o obj/LaserSubUnitF.o obj/LaserUnit.o obj/lfillgaps.o obj/OutliningParameters.o obj/pixinquad.o obj/SearchPoint.o obj/SegmentationParameters.o obj/StripErrors.o obj/StripOrientation.o   obj/FunctionTimer.o obj/GeneralUtility.o obj/IOFunctions.o obj/Palettes.o obj/ParseUtility.o obj/ProgressDisplay.o obj/VisualizationUtility.o obj/VrmlUtility.o  obj/gl2ps.o obj/glcanvas.o obj/GLComplexObject.o obj/GLIndexedFaceSet.o obj/GLIndexedLineSet.o obj/GLObject.o obj/GLPointSet.o obj/GLSimpleObjects.o obj/GLViewpoint.o obj/OpenGLUtility.o obj/Trackball.o  obj/GeometricFittingENLSIP.o obj/LaserObjects.o obj/LaserPointsFitting.o obj/LaserPointsMM.o  obj/LaserPointsProcessing.o   obj/LaserPointsUtility.o obj/LaserTilePtrVector.o obj/LaserTransform3D.o obj/RegistrationStructs.o obj/SegmentFinder.o obj/SegmentOutlines.o obj/Transform3D.o obj/Vector3Df.o obj/SurfaceGrowing.o obj/LaserPatch.o obj/LaserPatches.o obj/FilteringParameters.o$(RES) 
+LINKOBJ  = $(OBJ) $(RES)
+LIBS =  
+INCS =  $(ENLSIP_INC) $(NEWMAT_INC) $(ANN_INC) -I"include"  -I"../Photogrammetry/include"  $(LAS_INC)
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libLaserScan.a
+CXXFLAGS = $(CXXINCS) -Duse_namespace -fpermissive
+CFLAGS = $(INCS)   
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/%.o: src/%.c
+	$(CC) -c src/$*.c -o obj/$*.o $(CFLAGS)
+
+obj/%.o: src/%.cc
+	$(CPP) -c src/$*.cc -o obj/$*.o $(CXXFLAGS)
+
+obj/%.o: src/%.cpp
+	$(CPP) -c src/$*.cpp -o obj/$*.o $(CXXFLAGS)
