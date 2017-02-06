@@ -1,0 +1,51 @@
+# Project: Eispack
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -Dwindows
+CC   = gcc.exe -Dwindows
+FC   = gfortran.exe -Dwindows
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/bakvec.o  obj/cg.o      obj/corth.o   obj/htrib3.o  obj/orthes.o  obj/reduc2.o  obj/rsp.o     obj/tred1.o \
+	obj/balanc.o  obj/ch.o      obj/csroot.o  obj/htribk.o  obj/ortran.o  obj/reduc.o   obj/rst.o     obj/tred2.o \
+	obj/balbak.o  obj/cinvit.o  obj/elmbak.o  obj/htrid3.o  obj/pythag.o  obj/rg.o      obj/rt.o      obj/tred3.o \
+	obj/bandr.o   obj/combak.o  obj/elmhes.o  obj/htridi.o  obj/qzhes.o   obj/rgg.o     obj/svd.o     obj/tridib.o \
+	obj/bandv.o   obj/comhes.o  obj/eltran.o  obj/imtql1.o  obj/qzit.o    obj/rsb.o     obj/tinvit.o  obj/tsturm.o \
+	obj/bisect.o  obj/comlr2.o  obj/epslon.o  obj/imtql2.o  obj/qzval.o   obj/rs.o      obj/tql1.o \
+	obj/bqr.o     obj/comlr.o   obj/figi2.o   obj/imtqlv.o  obj/qzvec.o   obj/rsgab.o   obj/tql2.o \
+	obj/cbabk2.o  obj/comqr2.o  obj/figi.o    obj/invit.o   obj/ratqr.o   obj/rsgba.o   obj/tqlrat.o \
+	obj/cbal.o    obj/comqr.o   obj/hqr2.o    obj/minfit.o  obj/rebakb.o  obj/rsg.o     obj/trbak1.o \
+	obj/cdiv.o    obj/cortb.o   obj/hqr.o     obj/ortbak.o  obj/rebak.o   obj/rsm.o     obj/trbak3.o $(RES)
+LINKOBJ  = obj/bakvec.o  obj/cg.o      obj/corth.o   obj/htrib3.o  obj/orthes.o  obj/reduc2.o  obj/rsp.o     obj/tred1.o \
+	obj/balanc.o  obj/ch.o      obj/csroot.o  obj/htribk.o  obj/ortran.o  obj/reduc.o   obj/rst.o     obj/tred2.o \
+	obj/balbak.o  obj/cinvit.o  obj/elmbak.o  obj/htrid3.o  obj/pythag.o  obj/rg.o      obj/rt.o      obj/tred3.o \
+	obj/bandr.o   obj/combak.o  obj/elmhes.o  obj/htridi.o  obj/qzhes.o   obj/rgg.o     obj/svd.o     obj/tridib.o \
+	obj/bandv.o   obj/comhes.o  obj/eltran.o  obj/imtql1.o  obj/qzit.o    obj/rsb.o     obj/tinvit.o  obj/tsturm.o \
+	obj/bisect.o  obj/comlr2.o  obj/epslon.o  obj/imtql2.o  obj/qzval.o   obj/rs.o      obj/tql1.o \
+	obj/bqr.o     obj/comlr.o   obj/figi2.o   obj/imtqlv.o  obj/qzvec.o   obj/rsgab.o   obj/tql2.o \
+	obj/cbabk2.o  obj/comqr2.o  obj/figi.o    obj/invit.o   obj/ratqr.o   obj/rsgba.o   obj/tqlrat.o \
+	obj/cbal.o    obj/comqr.o   obj/hqr2.o    obj/minfit.o  obj/rebakb.o  obj/rsg.o     obj/trbak1.o \
+	obj/cdiv.o    obj/cortb.o   obj/hqr.o     obj/ortbak.o  obj/rebak.o   obj/rsm.o     obj/trbak3.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/MinGW32/lib"  
+INCS =  -I"C:/Dev-Cpp/MinGW32/include" 
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libEispack.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/%.o : src/%.f
+	$(FC) -c src/$*.f -o obj/$*.o
+
