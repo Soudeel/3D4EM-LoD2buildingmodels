@@ -1,0 +1,18 @@
+
+all:
+	$(MAKE) -C ANN -f Makefile_ANN.win
+	$(MAKE) -C citygml\libcitygml.0.1.3 -f Makefile_libcitygml.0.1.3.win
+	$(MAKE) -C Eispack -f Makefile_Eispack.win
+	$(MAKE) -C ENLSIP -f Makefile_ENLSIP.win
+	$(MAKE) -C libxml2\libxml2-2.8.0\win32 -f Makefile.mingw
+	$(MAKE) -C Linpack -f Makefile_Linpack.win
+	$(MAKE) -C newmat -f Makefile_newmat.win
+
+clean:
+	$(MAKE) -C ANN -f Makefile_ANN.win clean 
+	$(MAKE) -C citygml\libcitygml.0.1.3 -f Makefile_libcitygml.0.1.3.win clean
+	$(MAKE) -C Eispack -f Makefile_Eispack.win clean
+	$(MAKE) -C ENLSIP -f Makefile_ENLSIP.win clean
+	$(MAKE) -C libxml2\libxml2-2.8.0\win32 -f Makefile.mingw clean
+	$(MAKE) -C Linpack -f Makefile_Linpack.win clean
+	$(MAKE) -C newmat -f Makefile_newmat.win clean 

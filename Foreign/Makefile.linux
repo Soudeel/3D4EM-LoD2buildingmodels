@@ -1,0 +1,20 @@
+
+
+all:
+	$(MAKE) -C NR -f Makefile_NR.linux
+	$(MAKE) -C Linpack -f Makefile_Linpack.linux
+	$(MAKE) -C Eispack -f Makefile_Eispack.linux
+	$(MAKE) -C f2c -f Makefile_linux
+	$(MAKE) -C newmat -f Makefile_linux
+	$(MAKE) -C ANN -f Makefile_linux
+	$(MAKE) -C ENLSIP -f Makefile_linux
+
+clean:
+	$(MAKE) -C NR -f Makefile_NR.linux clean
+	$(MAKE) -C Eispack -f Makefile_Eispack.linux clean
+	$(MAKE) -C Linpack -f Makefile_Linpack.linux clean
+	$(MAKE) -C f2c -f Makefile_linux clean
+	$(MAKE) -C newmat -f Makefile_linux clean 
+	$(MAKE) -C ANN -f Makefile_linux clean 
+	$(MAKE) -C ENLSIP -f Makefile_linux clean
+
