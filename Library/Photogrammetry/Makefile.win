@@ -1,0 +1,471 @@
+# Project: Photogrammetry
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = obj/LineTopology.o obj/BSpline.o obj/vMatrix.o obj/vRecord.o obj/2DPointsDatabase.o obj/3DPointsDatabase.o obj/AbsoluteDatabase.o obj/AbsoluteOrientation.o obj/absor_approx.o obj/absor_exact.o obj/adjust.o obj/Approx_Quat.o obj/biline.o obj/BSplineBF.o obj/calpar.o obj/CameraPoint.o obj/CameraPoints.o obj/CamPtsDatabase.o obj/Circle2D.o obj/collect_data.o obj/Comment.o obj/complex.o obj/ControlPoint.o obj/ControlPoints.o obj/Coplan_direct.o obj/Coplan_indir.o obj/Covariance3D.o obj/cucon.o obj/DataBounds2D.o obj/DataBounds3D.o obj/DataGrid.o obj/ExteriorDatabase.o obj/ExteriorOrientation.o obj/ext_direct.o obj/ext_indirect.o obj/File_To_Metric.o obj/File_To_Pix.o obj/get_filename.o obj/get_ortho_size.o obj/Grid3DDatabase.o obj/GridDatabase.o obj/Histogram.o obj/HoughSpace.o obj/hpscan.o obj/Image.o obj/ImageGrid.o obj/ImageLine.o obj/ImageLines.o obj/ImagePoint.o obj/ImagePoints.o obj/ImgLinesDatabase.o obj/ImgPtsDatabase.o obj/InlineArguments.o obj/InteriorDatabase.o obj/InteriorOrientation.o obj/Intor_Correct.o obj/labs2ext.o obj/labsor.o obj/lanaglyph.o obj/ldifvec.o obj/lepipolar.o obj/lext2abs.o obj/lforward.o obj/Line2D.o obj/Line3D.o obj/Lines2D.o obj/LineSegment2D.o obj/LineSegment3D.o obj/LineSegments2D.o obj/LineSegments3D.o obj/LineTopologies.o obj/LineTopsIterVector.o obj/lintor.o obj/llesspts.o obj/lmforward.o obj/lmodel2obj.o obj/lobj2cam.o obj/lobj2d2pix.o obj/lobj2pix.o obj/lorthoimage.o obj/lpix2obj.o obj/lpix2obj2d.o obj/lrectify.o obj/LSAdjust.o obj/ls_interior.o obj/matrix.o obj/Matrix3.o obj/Metric_To_Pix.o obj/ModelPoint.o obj/ModelPoints.o obj/Mod_Basis.o obj/mult_inter.o obj/neigh.o obj/normal_equations.o obj/ObjectPoint.o obj/ObjectPoint2D.o obj/ObjectPoints.o obj/ObjectPoints2D.o obj/Orientation3D.o obj/PixelPosition.o obj/Pix_To_Metric.o obj/Plane.o obj/Planes.o obj/PointNumber.o obj/PointNumberList.o obj/PointNumberLists.o obj/Position2D.o obj/Position3D.o obj/Positions2D.o obj/Positions3D.o obj/ProjTrans2DDatabase.o obj/ProjTransform2D.o obj/Quaternion.o obj/Record_To_Metric.o obj/Record_To_Pix.o obj/regex.o obj/RelativeDatabase.o obj/RelativeOrientation.o obj/resample.o obj/Rotation3D.o obj/RotationParameter.o obj/solve_eq.o obj/SparseLS.o obj/srvv_ls.o obj/sr_direc.o obj/sr_gauss.o obj/sr_obseq.o obj/sr_step1.o obj/sr_step2.o obj/startpoints.o obj/Timer.o obj/TIN.o obj/TINEdges.o obj/TINEdgeSet.o obj/TINMesh.o obj/TopologyDatabase.o obj/triangle.o obj/TriangleDatabase.o obj/Var_y.o obj/Vector2D.o obj/Vector3D.o obj/Viff.o obj/vMatrix.o obj/vRecord.o obj/VRML_io.o obj/BSplineFit.o obj/LineTopologiesComplex.o obj/LineTopologyComplex.o $(RES)
+LINKOBJ  = obj/LineTopology.o obj/BSpline.o obj/vMatrix.o obj/vRecord.o obj/2DPointsDatabase.o obj/3DPointsDatabase.o obj/AbsoluteDatabase.o obj/AbsoluteOrientation.o obj/absor_approx.o obj/absor_exact.o obj/adjust.o obj/Approx_Quat.o obj/biline.o obj/BSplineBF.o obj/calpar.o obj/CameraPoint.o obj/CameraPoints.o obj/CamPtsDatabase.o obj/Circle2D.o obj/collect_data.o obj/Comment.o obj/complex.o obj/ControlPoint.o obj/ControlPoints.o obj/Coplan_direct.o obj/Coplan_indir.o obj/Covariance3D.o obj/cucon.o obj/DataBounds2D.o obj/DataBounds3D.o obj/DataGrid.o obj/ExteriorDatabase.o obj/ExteriorOrientation.o obj/ext_direct.o obj/ext_indirect.o obj/File_To_Metric.o obj/File_To_Pix.o obj/get_filename.o obj/get_ortho_size.o obj/Grid3DDatabase.o obj/GridDatabase.o obj/Histogram.o obj/HoughSpace.o obj/hpscan.o obj/Image.o obj/ImageGrid.o obj/ImageLine.o obj/ImageLines.o obj/ImagePoint.o obj/ImagePoints.o obj/ImgLinesDatabase.o obj/ImgPtsDatabase.o obj/InlineArguments.o obj/InteriorDatabase.o obj/InteriorOrientation.o obj/Intor_Correct.o obj/labs2ext.o obj/labsor.o obj/lanaglyph.o obj/ldifvec.o obj/lepipolar.o obj/lext2abs.o obj/lforward.o obj/Line2D.o obj/Line3D.o obj/Lines2D.o obj/LineSegment2D.o obj/LineSegment3D.o obj/LineSegments2D.o obj/LineSegments3D.o obj/LineTopologies.o obj/LineTopsIterVector.o obj/lintor.o obj/llesspts.o obj/lmforward.o obj/lmodel2obj.o obj/lobj2cam.o obj/lobj2d2pix.o obj/lobj2pix.o obj/lorthoimage.o obj/lpix2obj.o obj/lpix2obj2d.o obj/lrectify.o obj/LSAdjust.o obj/ls_interior.o obj/matrix.o obj/Matrix3.o obj/Metric_To_Pix.o obj/ModelPoint.o obj/ModelPoints.o obj/Mod_Basis.o obj/mult_inter.o obj/neigh.o obj/normal_equations.o obj/ObjectPoint.o obj/ObjectPoint2D.o obj/ObjectPoints.o obj/ObjectPoints2D.o obj/Orientation3D.o obj/PixelPosition.o obj/Pix_To_Metric.o obj/Plane.o obj/Planes.o obj/PointNumber.o obj/PointNumberList.o obj/PointNumberLists.o obj/Position2D.o obj/Position3D.o obj/Positions2D.o obj/Positions3D.o obj/ProjTrans2DDatabase.o obj/ProjTransform2D.o obj/Quaternion.o obj/Record_To_Metric.o obj/Record_To_Pix.o obj/regex.o obj/RelativeDatabase.o obj/RelativeOrientation.o obj/resample.o obj/Rotation3D.o obj/RotationParameter.o obj/solve_eq.o obj/SparseLS.o obj/srvv_ls.o obj/sr_direc.o obj/sr_gauss.o obj/sr_obseq.o obj/sr_step1.o obj/sr_step2.o obj/startpoints.o obj/Timer.o obj/TIN.o obj/TINEdges.o obj/TINEdgeSet.o obj/TINMesh.o obj/TopologyDatabase.o obj/triangle.o obj/TriangleDatabase.o obj/Var_y.o obj/Vector2D.o obj/Vector3D.o obj/Viff.o obj/vMatrix.o obj/vRecord.o obj/VRML_io.o obj/BSplineFit.o obj/LineTopologiesComplex.o obj/LineTopologyComplex.o $(RES)
+LIBS     = -L"D:/Program Files/Dev-Cpp/MinGW64/lib" -L"%path%/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Program Files/Dev-Cpp/MinGW64/include" -I"%path%/MinGW64/x86_64-w64-mingw32/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"include"
+CXXINCS  = -I"D:/Program Files/Dev-Cpp/MinGW64/include" -I"%path%/MinGW64/x86_64-w64-mingw32/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"include"
+BIN      = ../lib/libPhotogrammetry.a
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/LineTopology.o: src/LineTopology.cc
+	$(CPP) -c src/LineTopology.cc -o obj/LineTopology.o $(CXXFLAGS)
+
+obj/BSpline.o: include/BSpline.tcc
+	$(CPP) -c include/BSpline.tcc -o obj/BSpline.o $(CXXFLAGS)
+
+obj/vMatrix.o: include/vMatrix.tcc
+	$(CPP) -c include/vMatrix.tcc -o obj/vMatrix.o $(CXXFLAGS)
+
+obj/vRecord.o: include/vRecord.tcc
+	$(CPP) -c include/vRecord.tcc -o obj/vRecord.o $(CXXFLAGS)
+
+obj/2DPointsDatabase.o: src/2DPointsDatabase.c
+	$(CC) -c src/2DPointsDatabase.c -o obj/2DPointsDatabase.o $(CFLAGS)
+
+obj/3DPointsDatabase.o: src/3DPointsDatabase.c
+	$(CC) -c src/3DPointsDatabase.c -o obj/3DPointsDatabase.o $(CFLAGS)
+
+obj/AbsoluteDatabase.o: src/AbsoluteDatabase.c
+	$(CC) -c src/AbsoluteDatabase.c -o obj/AbsoluteDatabase.o $(CFLAGS)
+
+obj/AbsoluteOrientation.o: src/AbsoluteOrientation.cc
+	$(CPP) -c src/AbsoluteOrientation.cc -o obj/AbsoluteOrientation.o $(CXXFLAGS)
+
+obj/absor_approx.o: src/absor_approx.c
+	$(CC) -c src/absor_approx.c -o obj/absor_approx.o $(CFLAGS)
+
+obj/absor_exact.o: src/absor_exact.c
+	$(CC) -c src/absor_exact.c -o obj/absor_exact.o $(CFLAGS)
+
+obj/adjust.o: src/adjust.c
+	$(CC) -c src/adjust.c -o obj/adjust.o $(CFLAGS)
+
+obj/Approx_Quat.o: src/Approx_Quat.c
+	$(CC) -c src/Approx_Quat.c -o obj/Approx_Quat.o $(CFLAGS)
+
+obj/biline.o: src/biline.c
+	$(CC) -c src/biline.c -o obj/biline.o $(CFLAGS)
+
+obj/BSplineBF.o: src/BSplineBF.cc
+	$(CPP) -c src/BSplineBF.cc -o obj/BSplineBF.o $(CXXFLAGS)
+
+obj/calpar.o: src/calpar.c
+	$(CC) -c src/calpar.c -o obj/calpar.o $(CFLAGS)
+
+obj/CameraPoint.o: src/CameraPoint.cc
+	$(CPP) -c src/CameraPoint.cc -o obj/CameraPoint.o $(CXXFLAGS)
+
+obj/CameraPoints.o: src/CameraPoints.cc
+	$(CPP) -c src/CameraPoints.cc -o obj/CameraPoints.o $(CXXFLAGS)
+
+obj/CamPtsDatabase.o: src/CamPtsDatabase.c
+	$(CC) -c src/CamPtsDatabase.c -o obj/CamPtsDatabase.o $(CFLAGS)
+
+obj/Circle2D.o: src/Circle2D.cc
+	$(CPP) -c src/Circle2D.cc -o obj/Circle2D.o $(CXXFLAGS)
+
+obj/collect_data.o: src/collect_data.c
+	$(CC) -c src/collect_data.c -o obj/collect_data.o $(CFLAGS)
+
+obj/Comment.o: src/Comment.c
+	$(CC) -c src/Comment.c -o obj/Comment.o $(CFLAGS)
+
+obj/complex.o: src/complex.c
+	$(CC) -c src/complex.c -o obj/complex.o $(CFLAGS)
+
+obj/ControlPoint.o: src/ControlPoint.cc
+	$(CPP) -c src/ControlPoint.cc -o obj/ControlPoint.o $(CXXFLAGS)
+
+obj/ControlPoints.o: src/ControlPoints.cc
+	$(CPP) -c src/ControlPoints.cc -o obj/ControlPoints.o $(CXXFLAGS)
+
+obj/Coplan_direct.o: src/Coplan_direct.c
+	$(CC) -c src/Coplan_direct.c -o obj/Coplan_direct.o $(CFLAGS)
+
+obj/Coplan_indir.o: src/Coplan_indir.c
+	$(CC) -c src/Coplan_indir.c -o obj/Coplan_indir.o $(CFLAGS)
+
+obj/Covariance3D.o: src/Covariance3D.cc
+	$(CPP) -c src/Covariance3D.cc -o obj/Covariance3D.o $(CXXFLAGS)
+
+obj/cucon.o: src/cucon.c
+	$(CC) -c src/cucon.c -o obj/cucon.o $(CFLAGS)
+
+obj/DataBounds2D.o: src/DataBounds2D.cc
+	$(CPP) -c src/DataBounds2D.cc -o obj/DataBounds2D.o $(CXXFLAGS)
+
+obj/DataBounds3D.o: src/DataBounds3D.cc
+	$(CPP) -c src/DataBounds3D.cc -o obj/DataBounds3D.o $(CXXFLAGS)
+
+obj/DataGrid.o: src/DataGrid.cc
+	$(CPP) -c src/DataGrid.cc -o obj/DataGrid.o $(CXXFLAGS)
+
+obj/ExteriorDatabase.o: src/ExteriorDatabase.c
+	$(CC) -c src/ExteriorDatabase.c -o obj/ExteriorDatabase.o $(CFLAGS)
+
+obj/ExteriorOrientation.o: src/ExteriorOrientation.cc
+	$(CPP) -c src/ExteriorOrientation.cc -o obj/ExteriorOrientation.o $(CXXFLAGS)
+
+obj/ext_direct.o: src/ext_direct.c
+	$(CC) -c src/ext_direct.c -o obj/ext_direct.o $(CFLAGS)
+
+obj/ext_indirect.o: src/ext_indirect.c
+	$(CC) -c src/ext_indirect.c -o obj/ext_indirect.o $(CFLAGS)
+
+obj/File_To_Metric.o: src/File_To_Metric.c
+	$(CC) -c src/File_To_Metric.c -o obj/File_To_Metric.o $(CFLAGS)
+
+obj/File_To_Pix.o: src/File_To_Pix.c
+	$(CC) -c src/File_To_Pix.c -o obj/File_To_Pix.o $(CFLAGS)
+
+obj/get_filename.o: src/get_filename.c
+	$(CC) -c src/get_filename.c -o obj/get_filename.o $(CFLAGS)
+
+obj/get_ortho_size.o: src/get_ortho_size.c
+	$(CC) -c src/get_ortho_size.c -o obj/get_ortho_size.o $(CFLAGS)
+
+obj/Grid3DDatabase.o: src/Grid3DDatabase.c
+	$(CC) -c src/Grid3DDatabase.c -o obj/Grid3DDatabase.o $(CFLAGS)
+
+obj/GridDatabase.o: src/GridDatabase.c
+	$(CC) -c src/GridDatabase.c -o obj/GridDatabase.o $(CFLAGS)
+
+obj/Histogram.o: src/Histogram.cc
+	$(CPP) -c src/Histogram.cc -o obj/Histogram.o $(CXXFLAGS)
+
+obj/HoughSpace.o: src/HoughSpace.cc
+	$(CPP) -c src/HoughSpace.cc -o obj/HoughSpace.o $(CXXFLAGS)
+
+obj/hpscan.o: src/hpscan.f
+	$(CC) -c src/hpscan.f -o obj/hpscan.o $(CFLAGS)
+
+obj/Image.o: src/Image.cc
+	$(CPP) -c src/Image.cc -o obj/Image.o $(CXXFLAGS)
+
+obj/ImageGrid.o: src/ImageGrid.cc
+	$(CPP) -c src/ImageGrid.cc -o obj/ImageGrid.o $(CXXFLAGS)
+
+obj/ImageLine.o: src/ImageLine.cc
+	$(CPP) -c src/ImageLine.cc -o obj/ImageLine.o $(CXXFLAGS)
+
+obj/ImageLines.o: src/ImageLines.cc
+	$(CPP) -c src/ImageLines.cc -o obj/ImageLines.o $(CXXFLAGS)
+
+obj/ImagePoint.o: src/ImagePoint.cc
+	$(CPP) -c src/ImagePoint.cc -o obj/ImagePoint.o $(CXXFLAGS)
+
+obj/ImagePoints.o: src/ImagePoints.cc
+	$(CPP) -c src/ImagePoints.cc -o obj/ImagePoints.o $(CXXFLAGS)
+
+obj/ImgLinesDatabase.o: src/ImgLinesDatabase.c
+	$(CC) -c src/ImgLinesDatabase.c -o obj/ImgLinesDatabase.o $(CFLAGS)
+
+obj/ImgPtsDatabase.o: src/ImgPtsDatabase.c
+	$(CC) -c src/ImgPtsDatabase.c -o obj/ImgPtsDatabase.o $(CFLAGS)
+
+obj/InlineArguments.o: src/InlineArguments.cc
+	$(CPP) -c src/InlineArguments.cc -o obj/InlineArguments.o $(CXXFLAGS)
+
+obj/InteriorDatabase.o: src/InteriorDatabase.c
+	$(CC) -c src/InteriorDatabase.c -o obj/InteriorDatabase.o $(CFLAGS)
+
+obj/InteriorOrientation.o: src/InteriorOrientation.cc
+	$(CPP) -c src/InteriorOrientation.cc -o obj/InteriorOrientation.o $(CXXFLAGS)
+
+obj/Intor_Correct.o: src/Intor_Correct.c
+	$(CC) -c src/Intor_Correct.c -o obj/Intor_Correct.o $(CFLAGS)
+
+obj/labs2ext.o: src/labs2ext.c
+	$(CC) -c src/labs2ext.c -o obj/labs2ext.o $(CFLAGS)
+
+obj/labsor.o: src/labsor.c
+	$(CC) -c src/labsor.c -o obj/labsor.o $(CFLAGS)
+
+obj/lanaglyph.o: src/lanaglyph.c
+	$(CC) -c src/lanaglyph.c -o obj/lanaglyph.o $(CFLAGS)
+
+obj/ldifvec.o: src/ldifvec.c
+	$(CC) -c src/ldifvec.c -o obj/ldifvec.o $(CFLAGS)
+
+obj/lepipolar.o: src/lepipolar.c
+	$(CC) -c src/lepipolar.c -o obj/lepipolar.o $(CFLAGS)
+
+obj/lext2abs.o: src/lext2abs.c
+	$(CC) -c src/lext2abs.c -o obj/lext2abs.o $(CFLAGS)
+
+obj/lforward.o: src/lforward.c
+	$(CC) -c src/lforward.c -o obj/lforward.o $(CFLAGS)
+
+obj/Line2D.o: src/Line2D.cc
+	$(CPP) -c src/Line2D.cc -o obj/Line2D.o $(CXXFLAGS)
+
+obj/Line3D.o: src/Line3D.cc
+	$(CPP) -c src/Line3D.cc -o obj/Line3D.o $(CXXFLAGS)
+
+obj/Lines2D.o: src/Lines2D.cc
+	$(CPP) -c src/Lines2D.cc -o obj/Lines2D.o $(CXXFLAGS)
+
+obj/LineSegment2D.o: src/LineSegment2D.cc
+	$(CPP) -c src/LineSegment2D.cc -o obj/LineSegment2D.o $(CXXFLAGS)
+
+obj/LineSegment3D.o: src/LineSegment3D.cc
+	$(CPP) -c src/LineSegment3D.cc -o obj/LineSegment3D.o $(CXXFLAGS)
+
+obj/LineSegments2D.o: src/LineSegments2D.cc
+	$(CPP) -c src/LineSegments2D.cc -o obj/LineSegments2D.o $(CXXFLAGS)
+
+obj/LineSegments3D.o: src/LineSegments3D.cc
+	$(CPP) -c src/LineSegments3D.cc -o obj/LineSegments3D.o $(CXXFLAGS)
+
+obj/LineTopologies.o: src/LineTopologies.cc
+	$(CPP) -c src/LineTopologies.cc -o obj/LineTopologies.o $(CXXFLAGS)
+
+obj/LineTopsIterVector.o: src/LineTopsIterVector.cc
+	$(CPP) -c src/LineTopsIterVector.cc -o obj/LineTopsIterVector.o $(CXXFLAGS)
+
+obj/lintor.o: src/lintor.c
+	$(CC) -c src/lintor.c -o obj/lintor.o $(CFLAGS)
+
+obj/llesspts.o: src/llesspts.c
+	$(CC) -c src/llesspts.c -o obj/llesspts.o $(CFLAGS)
+
+obj/lmforward.o: src/lmforward.c
+	$(CC) -c src/lmforward.c -o obj/lmforward.o $(CFLAGS)
+
+obj/lmodel2obj.o: src/lmodel2obj.c
+	$(CC) -c src/lmodel2obj.c -o obj/lmodel2obj.o $(CFLAGS)
+
+obj/lobj2cam.o: src/lobj2cam.c
+	$(CC) -c src/lobj2cam.c -o obj/lobj2cam.o $(CFLAGS)
+
+obj/lobj2d2pix.o: src/lobj2d2pix.c
+	$(CC) -c src/lobj2d2pix.c -o obj/lobj2d2pix.o $(CFLAGS)
+
+obj/lobj2pix.o: src/lobj2pix.c
+	$(CC) -c src/lobj2pix.c -o obj/lobj2pix.o $(CFLAGS)
+
+obj/lorthoimage.o: src/lorthoimage.c
+	$(CC) -c src/lorthoimage.c -o obj/lorthoimage.o $(CFLAGS)
+
+obj/lpix2obj.o: src/lpix2obj.c
+	$(CC) -c src/lpix2obj.c -o obj/lpix2obj.o $(CFLAGS)
+
+obj/lpix2obj2d.o: src/lpix2obj2d.c
+	$(CC) -c src/lpix2obj2d.c -o obj/lpix2obj2d.o $(CFLAGS)
+
+obj/lrectify.o: src/lrectify.c
+	$(CC) -c src/lrectify.c -o obj/lrectify.o $(CFLAGS)
+
+obj/LSAdjust.o: src/LSAdjust.cc
+	$(CPP) -c src/LSAdjust.cc -o obj/LSAdjust.o $(CXXFLAGS)
+
+obj/ls_interior.o: src/ls_interior.c
+	$(CC) -c src/ls_interior.c -o obj/ls_interior.o $(CFLAGS)
+
+obj/matrix.o: src/matrix.c
+	$(CC) -c src/matrix.c -o obj/matrix.o $(CFLAGS)
+
+obj/Matrix3.o: src/Matrix3.cc
+	$(CPP) -c src/Matrix3.cc -o obj/Matrix3.o $(CXXFLAGS)
+
+obj/Metric_To_Pix.o: src/Metric_To_Pix.c
+	$(CC) -c src/Metric_To_Pix.c -o obj/Metric_To_Pix.o $(CFLAGS)
+
+obj/ModelPoint.o: src/ModelPoint.cc
+	$(CPP) -c src/ModelPoint.cc -o obj/ModelPoint.o $(CXXFLAGS)
+
+obj/ModelPoints.o: src/ModelPoints.cc
+	$(CPP) -c src/ModelPoints.cc -o obj/ModelPoints.o $(CXXFLAGS)
+
+obj/Mod_Basis.o: src/Mod_Basis.c
+	$(CC) -c src/Mod_Basis.c -o obj/Mod_Basis.o $(CFLAGS)
+
+obj/mult_inter.o: src/mult_inter.c
+	$(CC) -c src/mult_inter.c -o obj/mult_inter.o $(CFLAGS)
+
+obj/neigh.o: src/neigh.c
+	$(CC) -c src/neigh.c -o obj/neigh.o $(CFLAGS)
+
+obj/normal_equations.o: src/normal_equations.c
+	$(CC) -c src/normal_equations.c -o obj/normal_equations.o $(CFLAGS)
+
+obj/ObjectPoint.o: src/ObjectPoint.cc
+	$(CPP) -c src/ObjectPoint.cc -o obj/ObjectPoint.o $(CXXFLAGS)
+
+obj/ObjectPoint2D.o: src/ObjectPoint2D.cc
+	$(CPP) -c src/ObjectPoint2D.cc -o obj/ObjectPoint2D.o $(CXXFLAGS)
+
+obj/ObjectPoints.o: src/ObjectPoints.cc
+	$(CPP) -c src/ObjectPoints.cc -o obj/ObjectPoints.o $(CXXFLAGS)
+
+obj/ObjectPoints2D.o: src/ObjectPoints2D.cc
+	$(CPP) -c src/ObjectPoints2D.cc -o obj/ObjectPoints2D.o $(CXXFLAGS)
+
+obj/Orientation3D.o: src/Orientation3D.cc
+	$(CPP) -c src/Orientation3D.cc -o obj/Orientation3D.o $(CXXFLAGS)
+
+obj/PixelPosition.o: src/PixelPosition.cc
+	$(CPP) -c src/PixelPosition.cc -o obj/PixelPosition.o $(CXXFLAGS)
+
+obj/Pix_To_Metric.o: src/Pix_To_Metric.c
+	$(CC) -c src/Pix_To_Metric.c -o obj/Pix_To_Metric.o $(CFLAGS)
+
+obj/Plane.o: src/Plane.cc
+	$(CPP) -c src/Plane.cc -o obj/Plane.o $(CXXFLAGS)
+
+obj/Planes.o: src/Planes.cc
+	$(CPP) -c src/Planes.cc -o obj/Planes.o $(CXXFLAGS)
+
+obj/PointNumber.o: src/PointNumber.cc
+	$(CPP) -c src/PointNumber.cc -o obj/PointNumber.o $(CXXFLAGS)
+
+obj/PointNumberList.o: src/PointNumberList.cc
+	$(CPP) -c src/PointNumberList.cc -o obj/PointNumberList.o $(CXXFLAGS)
+
+obj/PointNumberLists.o: src/PointNumberLists.cc
+	$(CPP) -c src/PointNumberLists.cc -o obj/PointNumberLists.o $(CXXFLAGS)
+
+obj/Position2D.o: src/Position2D.cc
+	$(CPP) -c src/Position2D.cc -o obj/Position2D.o $(CXXFLAGS)
+
+obj/Position3D.o: src/Position3D.cc
+	$(CPP) -c src/Position3D.cc -o obj/Position3D.o $(CXXFLAGS)
+
+obj/Positions2D.o: src/Positions2D.cc
+	$(CPP) -c src/Positions2D.cc -o obj/Positions2D.o $(CXXFLAGS)
+
+obj/Positions3D.o: src/Positions3D.cc
+	$(CPP) -c src/Positions3D.cc -o obj/Positions3D.o $(CXXFLAGS)
+
+obj/ProjTrans2DDatabase.o: src/ProjTrans2DDatabase.c
+	$(CC) -c src/ProjTrans2DDatabase.c -o obj/ProjTrans2DDatabase.o $(CFLAGS)
+
+obj/ProjTransform2D.o: src/ProjTransform2D.cc
+	$(CPP) -c src/ProjTransform2D.cc -o obj/ProjTransform2D.o $(CXXFLAGS)
+
+obj/Quaternion.o: src/Quaternion.cc
+	$(CPP) -c src/Quaternion.cc -o obj/Quaternion.o $(CXXFLAGS)
+
+obj/Record_To_Metric.o: src/Record_To_Metric.c
+	$(CC) -c src/Record_To_Metric.c -o obj/Record_To_Metric.o $(CFLAGS)
+
+obj/Record_To_Pix.o: src/Record_To_Pix.c
+	$(CC) -c src/Record_To_Pix.c -o obj/Record_To_Pix.o $(CFLAGS)
+
+obj/regex.o: src/regex.c
+	$(CC) -c src/regex.c -o obj/regex.o $(CFLAGS)
+
+obj/RelativeDatabase.o: src/RelativeDatabase.c
+	$(CC) -c src/RelativeDatabase.c -o obj/RelativeDatabase.o $(CFLAGS)
+
+obj/RelativeOrientation.o: src/RelativeOrientation.cc
+	$(CPP) -c src/RelativeOrientation.cc -o obj/RelativeOrientation.o $(CXXFLAGS)
+
+obj/resample.o: src/resample.c
+	$(CC) -c src/resample.c -o obj/resample.o $(CFLAGS)
+
+obj/Rotation3D.o: src/Rotation3D.cc
+	$(CPP) -c src/Rotation3D.cc -o obj/Rotation3D.o $(CXXFLAGS)
+
+obj/RotationParameter.o: src/RotationParameter.cc
+	$(CPP) -c src/RotationParameter.cc -o obj/RotationParameter.o $(CXXFLAGS)
+
+obj/solve_eq.o: src/solve_eq.c
+	$(CC) -c src/solve_eq.c -o obj/solve_eq.o $(CFLAGS)
+
+obj/SparseLS.o: src/SparseLS.cc
+	$(CPP) -c src/SparseLS.cc -o obj/SparseLS.o $(CXXFLAGS)
+
+obj/srvv_ls.o: src/srvv_ls.f
+	$(CC) -c src/srvv_ls.f -o obj/srvv_ls.o $(CFLAGS)
+
+obj/sr_direc.o: src/sr_direc.c
+	$(CC) -c src/sr_direc.c -o obj/sr_direc.o $(CFLAGS)
+
+obj/sr_gauss.o: src/sr_gauss.c
+	$(CC) -c src/sr_gauss.c -o obj/sr_gauss.o $(CFLAGS)
+
+obj/sr_obseq.o: src/sr_obseq.f
+	$(CC) -c src/sr_obseq.f -o obj/sr_obseq.o $(CFLAGS)
+
+obj/sr_step1.o: src/sr_step1.c
+	$(CC) -c src/sr_step1.c -o obj/sr_step1.o $(CFLAGS)
+
+obj/sr_step2.o: src/sr_step2.c
+	$(CC) -c src/sr_step2.c -o obj/sr_step2.o $(CFLAGS)
+
+obj/startpoints.o: src/startpoints.c
+	$(CC) -c src/startpoints.c -o obj/startpoints.o $(CFLAGS)
+
+obj/Timer.o: src/Timer.cc
+	$(CPP) -c src/Timer.cc -o obj/Timer.o $(CXXFLAGS)
+
+obj/TIN.o: src/TIN.cc
+	$(CPP) -c src/TIN.cc -o obj/TIN.o $(CXXFLAGS)
+
+obj/TINEdges.o: src/TINEdges.cc
+	$(CPP) -c src/TINEdges.cc -o obj/TINEdges.o $(CXXFLAGS)
+
+obj/TINEdgeSet.o: src/TINEdgeSet.cc
+	$(CPP) -c src/TINEdgeSet.cc -o obj/TINEdgeSet.o $(CXXFLAGS)
+
+obj/TINMesh.o: src/TINMesh.cc
+	$(CPP) -c src/TINMesh.cc -o obj/TINMesh.o $(CXXFLAGS)
+
+obj/TopologyDatabase.o: src/TopologyDatabase.c
+	$(CC) -c src/TopologyDatabase.c -o obj/TopologyDatabase.o $(CFLAGS)
+
+obj/triangle.o: src/triangle.c
+	$(CC) -c src/triangle.c -o obj/triangle.o $(CFLAGS)
+
+obj/TriangleDatabase.o: src/TriangleDatabase.c
+	$(CC) -c src/TriangleDatabase.c -o obj/TriangleDatabase.o $(CFLAGS)
+
+obj/Var_y.o: src/Var_y.c
+	$(CC) -c src/Var_y.c -o obj/Var_y.o $(CFLAGS)
+
+obj/Vector2D.o: src/Vector2D.cc
+	$(CPP) -c src/Vector2D.cc -o obj/Vector2D.o $(CXXFLAGS)
+
+obj/Vector3D.o: src/Vector3D.cc
+	$(CPP) -c src/Vector3D.cc -o obj/Vector3D.o $(CXXFLAGS)
+
+obj/Viff.o: src/Viff.c
+	$(CC) -c src/Viff.c -o obj/Viff.o $(CFLAGS)
+
+obj/vMatrix.o: src/vMatrix.cc
+	$(CPP) -c src/vMatrix.cc -o obj/vMatrix.o $(CXXFLAGS)
+
+obj/vRecord.o: src/vRecord.cc
+	$(CPP) -c src/vRecord.cc -o obj/vRecord.o $(CXXFLAGS)
+
+obj/VRML_io.o: src/VRML_io.cc
+	$(CPP) -c src/VRML_io.cc -o obj/VRML_io.o $(CXXFLAGS)
+
+obj/BSplineFit.o: src/BSplineFit.cc
+	$(CPP) -c src/BSplineFit.cc -o obj/BSplineFit.o $(CXXFLAGS)
+
+obj/LineTopologiesComplex.o: src/LineTopologiesComplex.cc
+	$(CPP) -c src/LineTopologiesComplex.cc -o obj/LineTopologiesComplex.o $(CXXFLAGS)
+
+obj/LineTopologyComplex.o: src/LineTopologyComplex.cc
+	$(CPP) -c src/LineTopologyComplex.cc -o obj/LineTopologyComplex.o $(CXXFLAGS)

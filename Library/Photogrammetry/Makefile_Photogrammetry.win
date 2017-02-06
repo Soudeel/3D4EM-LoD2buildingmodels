@@ -1,0 +1,63 @@
+#
+#    Copyright 2010 University of Twente and Delft University of Technology
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+
+# Project: Photogrammetry
+# Makefile created by Dev-C++ 4.9.9.2, adjusted by SH
+
+CPP  = g++.exe -Dwindows
+CC   = gcc.exe -Dwindows
+FC   = gfortran.exe -Dwindows
+WINDRES = windres.exe
+RES  = 
+
+OBJ  = obj/Vector2D.o obj/2DPointsDatabase.o obj/3DPointsDatabase.o obj/AbsoluteDatabase.o obj/AbsoluteOrientation.o obj/absor_approx.o obj/absor_exact.o obj/Approx_Quat.o obj/biline.o obj/BSplineBF.o obj/BSplineFit.o obj/calpar.o obj/CameraPoint.o obj/CameraPoints.o obj/CamPtsDatabase.o obj/Circle2D.o obj/collect_data.o obj/Comment.o obj/complex.o obj/Compression.o obj/ControlPoint.o obj/ControlPoints.o obj/Coplan_direct.o obj/Coplan_indir.o obj/Covariance3D.o obj/cucon.o obj/DataBounds2D.o obj/DataBounds3D.o obj/DataGrid.o obj/ext_direct.o obj/ext_indirect.o obj/ExteriorDatabase.o obj/ExteriorOrientation.o obj/File_To_Metric.o obj/File_To_Pix.o obj/get_filename.o obj/get_ortho_size.o obj/Grid3DDatabase.o obj/GridDatabase.o obj/Histogram.o obj/HoughSpace.o obj/Image.o obj/ImageGrid.o obj/ImageLine.o obj/ImageLines.o obj/ImagePoint.o obj/ImagePoints.o obj/ImgLinesDatabase.o obj/ImgPtsDatabase.o obj/InteriorDatabase.o obj/InteriorOrientation.o obj/Intor_Correct.o obj/labs2ext.o obj/labsor.o obj/lanaglyph.o obj/ldifvec.o obj/lepipolar.o obj/lext2abs.o obj/lforward.o obj/Line2D.o obj/Line3D.o obj/Lines2D.o obj/LineSegment2D.o obj/LineSegment3D.o obj/LineSegments2D.o obj/LineSegments3D.o obj/LineTopologies.o obj/LineTopology.o obj/LineTopologyComplex.o obj/LineTopologiesComplex.o obj/lintor.o obj/llesspts.o obj/lmforward.o obj/lmodel2obj.o obj/lobj2cam.o obj/lobj2d2pix.o obj/lobj2pix.o obj/lorthoimage.o obj/lpix2obj2d.o obj/lpix2obj.o obj/lrectify.o obj/ls_interior.o obj/LSAdjust.o obj/Matrix3.o obj/Metric_To_Pix.o obj/Mod_Basis.o obj/ModelPoint.o obj/ModelPoints.o obj/mult_inter.o obj/neigh.o obj/ObjectPoint2D.o obj/ObjectPoint.o obj/ObjectPoints2D.o obj/ObjectPoints.o obj/Orientation3D.o obj/Pix_To_Metric.o obj/PixelPosition.o obj/Plane.o obj/Planes.o obj/PointNumber.o obj/PointNumberList.o obj/PointNumberLists.o obj/Position2D.o obj/Position3D.o obj/Positions2D.o obj/Positions3D.o obj/ProjTrans2DDatabase.o obj/ProjTransform2D.o obj/Quaternion.o obj/Record_To_Metric.o obj/Record_To_Pix.o obj/RelativeDatabase.o obj/RelativeOrientation.o obj/resample.o obj/Rotation3D.o obj/RotationParameter.o obj/solve_eq.o obj/SparseLS.o obj/sr_direc.o obj/sr_gauss.o obj/sr_step1.o obj/sr_step2.o obj/startpoints.o obj/Timer.o obj/TIN.o obj/TINEdges.o obj/TINEdgeSet.o obj/TINMesh.o obj/TopologyDatabase.o obj/triangle.o obj/TriangleDatabase.o obj/Var_y.o obj/Vector3D.o obj/Viff.o obj/vMatrix.o obj/vRecord.o obj/VRML_io.o obj/normal_equations.o obj/adjust.o obj/matrix.o obj/InlineArguments.o obj/LineTopsIterVector.o obj/srvv_ls.o obj/sr_obseq.o obj/hpscan.o obj/regex.o $(RES)
+
+LIBS =   
+INCS =  -I"include"  
+CXXINCS =  $(INCS) -Duse_namespace
+BIN  = $(MAPPING_LIB_DIR)/libPhotogrammetry.a
+CXXFLAGS = -g $(CXXINCS)  
+CFLAGS = -g $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(MAPPING_LIB_DIR)/libPhotogrammetry.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	ar r $(BIN) $(OBJ)
+	ranlib $(BIN)
+
+obj/%.o: src/%.c
+	$(CC) -c src/$*.c -o obj/$*.o $(CFLAGS)
+
+obj/%.o: src/%.cc
+	$(CPP) -c src/$*.cc -o obj/$*.o $(CXXFLAGS)
+
+obj/%.o : src/%.f
+	$(FC) -c src/$*.f -o obj/$*.o

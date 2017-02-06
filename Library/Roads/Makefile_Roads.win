@@ -1,0 +1,55 @@
+#
+#                      Copyright 2010 University of Twente
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+# Project: Roads
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -g -Dwindows -w -Wno-deprecated
+CC   = gcc.exe -g -Dwindows
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/Road.o obj/RoadPart.o obj/Roads.o $(RES)
+LIBS = 
+INCS = -I"include"  -I"../Buildings/include" -I"../LaserScan/include"  -I"../Photogrammetry/include" 
+CXXINCS =  $(INCS)
+# BIN  = ../lib/libRoads.a
+BIN  = $(MAPPING_LIB_DIR)/libRoads.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+# all: all-before ../lib/libRoads.a all-after
+all: all-before $(MAPPING_LIB_DIR)/libRoads.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	ar r $(BIN) $(OBJ)
+	ranlib $(BIN)
+
+obj/%.o: src/%.cc
+	$(CPP) -c src/$*.cc -o obj/$*.o $(CXXFLAGS)
