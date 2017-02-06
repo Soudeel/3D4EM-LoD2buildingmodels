@@ -1,0 +1,32 @@
+# Project: laz2xyzlaser
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o laz2xyzlaser_cpp.o $(RES)
+LINKOBJ  = main.o laz2xyzlaser_cpp.o $(RES)
+LIBS     = -L"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libstdc++ -static-libgcc -L"../../../Library/lib" -lLaserScan -lPhotogrammetry  -lEispack -lLinpack -lANN -lnewmat -lg2c 
+INCS     = -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"../../../Library/LaserScan/include" -I"../../../Library/Photogrammetry/include"
+CXXINCS  = -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"../../../Library/LaserScan/include" -I"../../../Library/Photogrammetry/include"
+BIN      = ../../bin/laz2xyzlaser.exe
+CXXFLAGS = $(CXXINCS)  -Wfatal-errors
+CFLAGS   = $(INCS)  -Wfatal-errors
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+laz2xyzlaser_cpp.o: laz2xyzlaser_cpp.cc
+	$(CPP) -c laz2xyzlaser_cpp.cc -o laz2xyzlaser_cpp.o $(CXXFLAGS)
