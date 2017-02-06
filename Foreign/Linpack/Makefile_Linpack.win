@@ -1,0 +1,47 @@
+# Project: Linpack
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -Dwindows
+CC   = gcc.exe -Dwindows
+FC   = gfortran.exe -Dwindows
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/dblas.o   obj/dgefa.o   obj/dznrm2.o  obj/zdotc.o   obj/zgeco.o  obj/zhpdi.o  obj/zpodi.o  obj/zsvdc.o \
+	obj/dcabs1.o  obj/dgesl.o   obj/izamax.o  obj/zdotu.o   obj/zgedi.o  obj/zhpfa.o  obj/zpofa.o  obj/zswap.o \
+	obj/dgbco.o   obj/dqrdc.o   obj/zaxpy.o   obj/zdrot.o   obj/zgefa.o  obj/zhpsl.o  obj/zposl.o  obj/ztrco.o \
+	obj/dgbdi.o   obj/dqrsl.o   obj/zchdc.o   obj/zdscal.o  obj/zgesl.o  obj/zpbco.o  obj/zppco.o  obj/ztrdi.o \
+	obj/dgbfa.o   obj/drot.o    obj/zchdd.o   obj/zgbco.o   obj/zgtsl.o  obj/zpbdi.o  obj/zppdi.o  obj/ztrsl.o \
+	obj/dgbsl.o   obj/drotg.o   obj/zchex.o   obj/zgbdi.o   obj/zhifa.o  obj/zpbfa.o  obj/zppfa.o \
+	obj/dgeco.o   obj/dsvdc.o   obj/zchud.o   obj/zgbfa.o   obj/zhisl.o  obj/zpbsl.o  obj/zrotg.o \
+	obj/dgedi.o   obj/dzasum.o  obj/zcopy.o   obj/zgbsl.o   obj/zhpco.o  obj/zpoco.o  obj/zscal.o $(RES)
+LINKOBJ  = obj/dblas.o   obj/dgefa.o   obj/dznrm2.o  obj/zdotc.o   obj/zgeco.o  obj/zhpdi.o  obj/zpodi.o  obj/zsvdc.o \
+	obj/dcabs1.o  obj/dgesl.o   obj/izamax.o  obj/zdotu.o   obj/zgedi.o  obj/zhpfa.o  obj/zpofa.o  obj/zswap.o \
+	obj/dgbco.o   obj/dqrdc.o   obj/zaxpy.o   obj/zdrot.o   obj/zgefa.o  obj/zhpsl.o  obj/zposl.o  obj/ztrco.o \
+	obj/dgbdi.o   obj/dqrsl.o   obj/zchdc.o   obj/zdscal.o  obj/zgesl.o  obj/zpbco.o  obj/zppco.o  obj/ztrdi.o \
+	obj/dgbfa.o   obj/drot.o    obj/zchdd.o   obj/zgbco.o   obj/zgtsl.o  obj/zpbdi.o  obj/zppdi.o  obj/ztrsl.o \
+	obj/dgbsl.o   obj/drotg.o   obj/zchex.o   obj/zgbdi.o   obj/zhifa.o  obj/zpbfa.o  obj/zppfa.o \
+	obj/dgeco.o   obj/dsvdc.o   obj/zchud.o   obj/zgbfa.o   obj/zhisl.o  obj/zpbsl.o  obj/zrotg.o \
+	obj/dgedi.o   obj/dzasum.o  obj/zcopy.o   obj/zgbsl.o   obj/zhpco.o  obj/zpoco.o  obj/zscal.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/MinGW/lib"  
+INCS =  -I"C:/Dev-Cpp/MinGW/include" 
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libLinpack.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/%.o : src/%.f
+	$(FC) -c src/$*.f -o obj/$*.o
+
