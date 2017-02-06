@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ANN" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="..\..\Library\lib\libANN" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="include" />
+		</Compiler>
+		<Unit filename="include\ANN\ANNx.h" />
+		<Unit filename="include\ANN\ANN.h" />
+		<Unit filename="include\ANN\ANNperf.h" />
+		<Unit filename="src\pr_queue_k.h" />
+		<Unit filename="src\ANN.cpp" />
+		<Unit filename="src\bd_pr_search.cpp" />
+		<Unit filename="src\bd_search.cpp" />
+		<Unit filename="src\bd_tree.cpp" />
+		<Unit filename="src\bd_tree.h" />
+		<Unit filename="src\brute.cpp" />
+		<Unit filename="src\kd_pr_search.cpp" />
+		<Unit filename="src\kd_pr_search.h" />
+		<Unit filename="src\kd_search.cpp" />
+		<Unit filename="src\kd_search.h" />
+		<Unit filename="src\kd_split.cpp" />
+		<Unit filename="src\kd_split.h" />
+		<Unit filename="src\kd_util.cpp" />
+		<Unit filename="src\kd_util.h" />
+		<Unit filename="src\perf.cpp" />
+		<Unit filename="src\pr_queue.h" />
+		<Unit filename="src\bd_fix_rad_search.cpp" />
+		<Unit filename="src\kd_fix_rad_search.h" />
+		<Unit filename="src\kd_tree.h" />
+		<Unit filename="src\kd_tree.cpp" />
+		<Unit filename="src\kd_fix_rad_search.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

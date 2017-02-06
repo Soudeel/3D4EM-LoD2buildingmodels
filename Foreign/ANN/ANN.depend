@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1243609076 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\ann.cpp
+	<ANN/ANNx.h>
+	<ANN/ANNperf.h>
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\include\ann\annx.h
+	<iomanip>
+	<ANN/ANN.h>
+
+1249457494 d:\rutzinger\mappinglib\mapping\foreign\ann\include\ann\ann.h
+	<cmath>
+	<iostream>
+	<cvalues>
+	<climits>
+	<cfloat>
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\include\ann\annperf.h
+	<ANN/ANN.h>
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\bd_fix_rad_search.cpp
+	"bd_tree.h"
+	"kd_fix_rad_search.h"
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\bd_tree.h
+	<ANN/ANNx.h>
+	"kd_tree.h"
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_tree.h
+	<ANN/ANNx.h>
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_fix_rad_search.h
+	"kd_tree.h"
+	"kd_util.h"
+	"pr_queue_k.h"
+	<ANN/ANNperf.h>
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_util.h
+	"kd_tree.h"
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\pr_queue_k.h
+	<ANN/ANNx.h>
+	<ANN/ANNperf.h>
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\bd_pr_search.cpp
+	"bd_tree.h"
+	"kd_pr_search.h"
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_pr_search.h
+	"kd_tree.h"
+	"kd_util.h"
+	"pr_queue.h"
+	"pr_queue_k.h"
+	<ANN/ANNperf.h>
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\pr_queue.h
+	<ANN/ANNx.h>
+	<ANN/ANNperf.h>
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\bd_search.cpp
+	"bd_tree.h"
+	"kd_search.h"
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_search.h
+	"kd_tree.h"
+	"kd_util.h"
+	"pr_queue_k.h"
+	<ANN/ANNperf.h>
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\bd_tree.cpp
+	"bd_tree.h"
+	"kd_util.h"
+	"kd_split.h"
+	<ANN/ANNperf.h>
+
+1154720788 d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_split.h
+	"kd_tree.h"
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\brute.cpp
+	<ANN/ANNx.h>
+	"pr_queue_k.h"
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_fix_rad_search.cpp
+	"kd_fix_rad_search.h"
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_pr_search.cpp
+	"kd_pr_search.h"
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_search.cpp
+	"kd_search.h"
+
+1154720788 source:d:\rutzinger\mappinglib\mapping\foreign\ann\src\kd_split.cpp
+	"kd_tree.h"
+	"kd_util.h"
+	"kd_split.h"
+

@@ -1,0 +1,266 @@
+Index: src/Makeconf.in
+===================================================================
+--- src/Makeconf.in	(revision 5025)
++++ src/Makeconf.in	(working copy)
+@@ -38,6 +38,8 @@
+ #    FLAG = $(shell $(MKOCTFILE) -p FLAG)
+ # The following flags are for compiling programs that are independent
+ # of Octave.  How confusing.
++AR = @AR@
++ARFLAGS = @ARFLAGS@
+ CC = @CC@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
+@@ -49,9 +51,11 @@
+ F77 = @F77@
+ FFLAGS = @FFLAGS@
+ FPICFLAG = @FPICFLAG@
++EXEEXT = @EXEEXT@
++OTHERLIBS = @OTHERLIBS@
+ 
+-ANNLIB = libANN.a
+-MAKELIB = ar ruv
++ANNLIB = @ANNLIB@
++MAKELIB = $(AR) $(ARFLAGS)
+ 
+ OCTAVE = @OCTAVE@
+ OCTAVE_VERSION = @OCTAVE_VERSION@
+Index: src/configure.base
+===================================================================
+--- src/configure.base	(revision 5025)
++++ src/configure.base	(working copy)
+@@ -318,6 +318,24 @@
+ esac
+ AC_SUBST(COPY_FLAGS)
+ 
++ANNLIB=libANN.a
++case "$canonical_host_type" in
++    *-*-msdosmsvc*)
++        ANNLIB=ANN.lib
++    ;;
++esac
++AC_SUBST(ANNLIB)
++
++OTHERLIBS=
++OF_CHECK_LIB(m,sin,[OTHERLIBS=-lm])
++AC_SUBST(OTHERLIBS)
++
++OCTAVE_EVAL(octave_config_info('AR'),AR)
++OCTAVE_EVAL(octave_config_info('ARFLAGS'),ARFLAGS)
++
++CPPFLAGS="$CPPFLAGS -DSTATIC_LINKED"
++OF_CHECK_LIB(m,random,[],[CPPFLAGS="$CPPFLAGS -DANN_NO_RANDOM"])
++
+ dnl Use $(STRIP) in the makefile to strip executables.  If not found, 
+ dnl STRIP expands to ':', which in the makefile does nothing.
+ dnl Don't need this for .oct files since mkoctfile handles them directly
+Index: src/ann/test/Makefile
+===================================================================
+--- src/ann/test/Makefile	(revision 5025)
++++ src/ann/test/Makefile	(working copy)
+@@ -46,14 +46,13 @@
+ BINDIR	= $(BASEDIR)/bin
+ LDFLAGS	= -L$(LIBDIR)
+ ANNLIBS	= -lANN
+-OTHERLIBS = -lm
+ 
+ #-----------------------------------------------------------------------------
+ # Some more definitions
+ #		ANNTEST		name of test program
+ #-----------------------------------------------------------------------------
+ 
+-ANNTEST = ann_test
++ANNTEST = ann_test$(EXEEXT)
+ 
+ HEADERS = rand.h
+ TESTSOURCES = ann_test.cpp rand.cpp
+@@ -77,10 +76,10 @@
+ #-----------------------------------------------------------------------------
+ 
+ ann_test.o: ann_test.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) ann_test.cpp
++	$(C++) -c -I$(INCDIR) $(CPPFLAGS) $(CXXFLAGS) ann_test.cpp
+ 
+ rand.o: rand.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) rand.cpp
++	$(C++) -c -I$(INCDIR) $(CPPFLAGS) $(CXXFLAGS) rand.cpp
+ 
+ #-----------------------------------------------------------------------------
+ # Cleaning
+Index: src/ann/sample/Makefile
+===================================================================
+--- src/ann/sample/Makefile	(revision 5025)
++++ src/ann/sample/Makefile	(working copy)
+@@ -44,14 +44,14 @@
+ LIBDIR	= $(BASEDIR)/lib
+ BINDIR	= $(BASEDIR)/bin
+ LDFLAGS	= -L$(LIBDIR)
+-ANNLIBS	= -lANN -lm
++ANNLIBS	= -lANN $(OTHERLIBS)
+ 
+ #-----------------------------------------------------------------------------
+ # Some more definitions
+ #		ANNSAMP		name of sample program
+ #-----------------------------------------------------------------------------
+ 
+-ANNSAMP = ann_sample
++ANNSAMP = ann_sample$(EXEEXT)
+ 
+ SAMPSOURCES = ann_sample.cpp
+ SAMPOBJECTS = $(SAMPSOURCES:.cpp=.o)
+@@ -74,7 +74,7 @@
+ #-----------------------------------------------------------------------------
+ 
+ ann_sample.o: ann_sample.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) ann_sample.cpp
++	$(C++) -c -I$(INCDIR) $(CPPFLAGS) $(CXXFLAGS) ann_sample.cpp
+ 
+ #-----------------------------------------------------------------------------
+ # Cleaning
+Index: src/ann/include/ANN/ANN.h
+===================================================================
+--- src/ann/include/ANN/ANN.h	(revision 5025)
++++ src/ann/include/ANN/ANN.h	(working copy)
+@@ -57,7 +57,7 @@
+ #ifndef ANN_H
+ #define ANN_H
+ 
+-#ifdef WIN32
++#if defined (WIN32) && ! defined (STATIC_LINKED)
+   //----------------------------------------------------------------------
+   // For Microsoft Visual C++, externally accessible symbols must be
+   // explicitly indicated with DLL_API, which is somewhat like "extern."
+Index: src/ann/ann2fig/ann2fig.cpp
+===================================================================
+--- src/ann/ann2fig/ann2fig.cpp	(revision 5025)
++++ src/ann/ann2fig/ann2fig.cpp	(working copy)
+@@ -579,8 +579,9 @@
+ // procedure.
+ //----------------------------------------------------------------------
+ 
+-main(int argc, char **argv)
++int main(int argc, char **argv)
+ {
+ 	getArgs(argc, argv);						// get input arguments
+ 	readANN();									// read the dump file
++	return 0;
+ }
+Index: src/ann/ann2fig/Makefile
+===================================================================
+--- src/ann/ann2fig/Makefile	(revision 5025)
++++ src/ann/ann2fig/Makefile	(working copy)
+@@ -42,14 +42,13 @@
+ BINDIR	= $(BASEDIR)/bin
+ LDFLAGS	= -L$(LIBDIR)
+ ANNLIBS	= -lANN
+-OTHERLIBS = -lm
+ 
+ #-----------------------------------------------------------------------------
+ # Some more definitions
+ #	ANN2FIG		name of executable
+ #-----------------------------------------------------------------------------
+ 
+-ANN2FIG = ann2fig
++ANN2FIG = ann2fig$(EXEEXT)
+ SOURCES = ann2fig.cpp
+ OBJECTS = $(SOURCES:.cpp=.o)
+ 
+@@ -71,7 +70,7 @@
+ #-----------------------------------------------------------------------------
+ 
+ ann2fig.o: ann2fig.cpp
+-	$(C++) -c -I$(INCDIR) ann2fig.cpp
++	$(C++) -c -I$(INCDIR) $(CPPFLAGS) $(CXXFLAGS) ann2fig.cpp
+ 
+ #-----------------------------------------------------------------------------
+ # Cleaning
+Index: src/ann/src/Makefile
+===================================================================
+--- src/ann/src/Makefile	(revision 5025)
++++ src/ann/src/Makefile	(working copy)
+@@ -62,48 +62,9 @@
+ # Make object files
+ #-----------------------------------------------------------------------------
+ 
+-ANN.o: ANN.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) ANN.cpp
++%.o : %.cpp
++	$(C++) -c -I$(INCDIR) $(CPPFLAGS) $(CXXFLAGS) -o $@ $<
+ 
+-brute.o: brute.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) brute.cpp
+-
+-kd_tree.o: kd_tree.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_tree.cpp
+-
+-kd_util.o: kd_util.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_util.cpp
+-
+-kd_split.o: kd_split.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_split.cpp
+-
+-kd_search.o: kd_search.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_search.cpp
+-
+-kd_pr_search.o: kd_pr_search.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_pr_search.cpp
+-
+-kd_fix_rad_search.o: kd_fix_rad_search.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_fix_rad_search.cpp
+-
+-kd_dump.o: kd_dump.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) kd_dump.cpp
+-
+-bd_tree.o: bd_tree.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) bd_tree.cpp
+-
+-bd_search.o: bd_search.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) bd_search.cpp
+-
+-bd_pr_search.o: bd_pr_search.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) bd_pr_search.cpp
+-
+-bd_fix_rad_search.o: bd_fix_rad_search.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) bd_fix_rad_search.cpp
+-
+-perf.o: perf.cpp
+-	$(C++) -c -I$(INCDIR) $(CXXFLAGS) perf.cpp
+-
+ #-----------------------------------------------------------------------------
+ # Cleaning
+ #-----------------------------------------------------------------------------
+Index: src/ann/bindings/ann_wrap.cpp
+===================================================================
+--- src/ann/bindings/ann_wrap.cpp	(revision 5025)
++++ src/ann/bindings/ann_wrap.cpp	(working copy)
+@@ -1637,7 +1637,7 @@
+       if (outtype && outtype != type)
+ 	return false;
+       assert(sz <= buf.size());
+-      std::copy(&buf[0], &buf[sz], (char*)ptr);
++      std::copy(buf.begin(), buf.begin()+sz, (char*)ptr);
+       return true;
+     }
+ 
+@@ -1654,7 +1654,7 @@
+     }
+ 
+     void print(std::ostream &os, bool pr_as_read_syntax = false) const {
+-      os << "swig packed type: name = " << type->name << ", len = " << buf.size() << std::endl;
++      os << "swig packed type: name = " << (type ? type->name : std::string()) << ", len = " << buf.size() << std::endl;
+     }
+   private:
+     DECLARE_OCTAVE_ALLOCATOR;
+Index: src/ann/bindings/Makefile
+===================================================================
+--- src/ann/bindings/Makefile	(revision 5025)
++++ src/ann/bindings/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ 
+ bindings-octave: ann.oct
+ ann.oct: ann_wrap.cpp ../include/ANN/ANN.h ../include/ANN/ANNperf.h ../include/ANN/ANNx.h
+-	$(MKOCTFILE) -o ann.oct -I../include -L../lib -lANN ann_wrap.cpp
++	$(MKOCTFILE) -DSTATIC_LINKED -o ann.oct -I../include -L../lib -lANN ann_wrap.cpp
+ 
+ ifdef SWIG
+ ann_wrap.cpp: ann.i

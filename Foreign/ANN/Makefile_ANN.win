@@ -1,0 +1,70 @@
+# Project: ANN
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -Dwindows -w -Wno-deprecated
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/perf.o obj/ANN.o obj/bd_fix_rad_search.o obj/bd_pr_search.o obj/bd_search.o obj/bd_tree.o obj/brute.o obj/kd_dump.o obj/kd_fix_rad_search.o obj/kd_pr_search.o obj/kd_search.o obj/kd_split.o obj/kd_tree.o obj/kd_util.o $(RES)
+LINKOBJ  = obj/perf.o obj/ANN.o obj/bd_fix_rad_search.o obj/bd_pr_search.o obj/bd_search.o obj/bd_tree.o obj/brute.o obj/kd_dump.o obj/kd_fix_rad_search.o obj/kd_pr_search.o obj/kd_search.o obj/kd_split.o obj/kd_tree.o obj/kd_util.o $(RES)
+LIBS =  
+INCS = -I "include" 
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libANN.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(MAPPING_LIB_DIR)/libANN.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/perf.o: src/perf.cpp
+	$(CPP) -c src/perf.cpp -o obj/perf.o $(CXXFLAGS)
+
+obj/ANN.o: src/ANN.cpp
+	$(CPP) -c src/ANN.cpp -o obj/ANN.o $(CXXFLAGS)
+
+obj/bd_fix_rad_search.o: src/bd_fix_rad_search.cpp
+	$(CPP) -c src/bd_fix_rad_search.cpp -o obj/bd_fix_rad_search.o $(CXXFLAGS)
+
+obj/bd_pr_search.o: src/bd_pr_search.cpp
+	$(CPP) -c src/bd_pr_search.cpp -o obj/bd_pr_search.o $(CXXFLAGS)
+
+obj/bd_search.o: src/bd_search.cpp
+	$(CPP) -c src/bd_search.cpp -o obj/bd_search.o $(CXXFLAGS)
+
+obj/bd_tree.o: src/bd_tree.cpp
+	$(CPP) -c src/bd_tree.cpp -o obj/bd_tree.o $(CXXFLAGS)
+
+obj/brute.o: src/brute.cpp
+	$(CPP) -c src/brute.cpp -o obj/brute.o $(CXXFLAGS)
+
+obj/kd_dump.o: src/kd_dump.cpp
+	$(CPP) -c src/kd_dump.cpp -o obj/kd_dump.o $(CXXFLAGS)
+
+obj/kd_fix_rad_search.o: src/kd_fix_rad_search.cpp
+	$(CPP) -c src/kd_fix_rad_search.cpp -o obj/kd_fix_rad_search.o $(CXXFLAGS)
+
+obj/kd_pr_search.o: src/kd_pr_search.cpp
+	$(CPP) -c src/kd_pr_search.cpp -o obj/kd_pr_search.o $(CXXFLAGS)
+
+obj/kd_search.o: src/kd_search.cpp
+	$(CPP) -c src/kd_search.cpp -o obj/kd_search.o $(CXXFLAGS)
+
+obj/kd_split.o: src/kd_split.cpp
+	$(CPP) -c src/kd_split.cpp -o obj/kd_split.o $(CXXFLAGS)
+
+obj/kd_tree.o: src/kd_tree.cpp
+	$(CPP) -c src/kd_tree.cpp -o obj/kd_tree.o $(CXXFLAGS)
+
+obj/kd_util.o: src/kd_util.cpp
+	$(CPP) -c src/kd_util.cpp -o obj/kd_util.o $(CXXFLAGS)
