@@ -1,0 +1,36 @@
+# Project: libcitygml.0.1.3
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = obj/citymodel.o obj/parser.o obj/parserlibxml2.o $(RES)
+LINKOBJ  = obj/citymodel.o obj/parser.o obj/parserlibxml2.o $(RES)
+LIBS     = -static-libstdc++ -static-libgcc
+INCS     =  -I"../../libxml2/libxml2-2.8.0/include" -I include
+CXXINCS  = $(INCS)
+BIN      = $(MAPPING_LIB_DIR)/libcitygml.0.1.3.a
+CXXFLAGS = $(CXXINCS) -fpermissive
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/citymodel.o: src/citymodel.cpp
+	$(CPP) -c src/citymodel.cpp -o obj/citymodel.o $(CXXFLAGS)
+
+obj/parser.o: src/parser.cpp
+	$(CPP) -c src/parser.cpp -o obj/parser.o $(CXXFLAGS)
+
+obj/parserlibxml2.o: src/parserlibxml2.cpp
+	$(CPP) -c src/parserlibxml2.cpp -o obj/parserlibxml2.o $(CXXFLAGS)
