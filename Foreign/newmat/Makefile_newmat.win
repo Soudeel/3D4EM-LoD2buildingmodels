@@ -1,0 +1,196 @@
+# Project: newmat
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/bandmat.o obj/cholesky.o obj/evalue.o obj/example.o obj/fft.o obj/garch.o obj/hholder.o obj/jacobi.o obj/myexcept.o obj/newfft.o obj/newmat1.o obj/newmat2.o obj/newmat3.o obj/newmat4.o obj/newmat5.o obj/newmat6.o obj/newmat7.o obj/newmat8.o obj/newmat9.o obj/newmatex.o obj/newmatnl.o obj/newmatrm.o obj/nl_ex.o obj/nm_ex1.o obj/nm_ex2.o obj/nm_ex3.o obj/nm_misc.o obj/sl_ex.o obj/solution.o obj/sort.o obj/submat.o obj/svd.o obj/test_exc.o obj/tmt.o obj/tmt1.o obj/tmt2.o obj/tmt3.o obj/tmt4.o obj/tmt5.o obj/tmt6.o obj/tmt7.o obj/tmt8.o obj/tmt9.o obj/tmta.o obj/tmtb.o obj/tmtc.o obj/tmtd.o obj/tmte.o obj/tmtf.o obj/tmtg.o obj/tmth.o obj/tmti.o obj/tmtj.o obj/tmtk.o obj/tmtl.o obj/tmtm.o $(RES)
+LINKOBJ  = obj/bandmat.o obj/cholesky.o obj/evalue.o obj/example.o obj/fft.o obj/garch.o obj/hholder.o obj/jacobi.o obj/myexcept.o obj/newfft.o obj/newmat1.o obj/newmat2.o obj/newmat3.o obj/newmat4.o obj/newmat5.o obj/newmat6.o obj/newmat7.o obj/newmat8.o obj/newmat9.o obj/newmatex.o obj/newmatnl.o obj/newmatrm.o obj/nl_ex.o obj/nm_ex1.o obj/nm_ex2.o obj/nm_ex3.o obj/nm_misc.o obj/sl_ex.o obj/solution.o obj/sort.o obj/submat.o obj/svd.o obj/test_exc.o obj/tmt.o obj/tmt1.o obj/tmt2.o obj/tmt3.o obj/tmt4.o obj/tmt5.o obj/tmt6.o obj/tmt7.o obj/tmt8.o obj/tmt9.o obj/tmta.o obj/tmtb.o obj/tmtc.o obj/tmtd.o obj/tmte.o obj/tmtf.o obj/tmtg.o obj/tmth.o obj/tmti.o obj/tmtj.o obj/tmtk.o obj/tmtl.o obj/tmtm.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/MinGW32/lib"  
+INCS =  -I"C:/Dev-Cpp/MinGW32/include" 
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libnewmat.a
+CXXFLAGS = $(CXXINCS) -Duse_namespace -fpermissive
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/bandmat.o: bandmat.cpp
+	$(CPP) -c bandmat.cpp -o obj/bandmat.o $(CXXFLAGS)
+
+obj/cholesky.o: cholesky.cpp
+	$(CPP) -c cholesky.cpp -o obj/cholesky.o $(CXXFLAGS)
+
+obj/evalue.o: evalue.cpp
+	$(CPP) -c evalue.cpp -o obj/evalue.o $(CXXFLAGS)
+
+obj/example.o: example.cpp
+	$(CPP) -c example.cpp -o obj/example.o $(CXXFLAGS)
+
+obj/fft.o: fft.cpp
+	$(CPP) -c fft.cpp -o obj/fft.o $(CXXFLAGS)
+
+obj/garch.o: garch.cpp
+	$(CPP) -c garch.cpp -o obj/garch.o $(CXXFLAGS)
+
+obj/hholder.o: hholder.cpp
+	$(CPP) -c hholder.cpp -o obj/hholder.o $(CXXFLAGS)
+
+obj/jacobi.o: jacobi.cpp
+	$(CPP) -c jacobi.cpp -o obj/jacobi.o $(CXXFLAGS)
+
+obj/myexcept.o: myexcept.cpp
+	$(CPP) -c myexcept.cpp -o obj/myexcept.o $(CXXFLAGS)
+
+obj/newfft.o: newfft.cpp
+	$(CPP) -c newfft.cpp -o obj/newfft.o $(CXXFLAGS)
+
+obj/newmat1.o: newmat1.cpp
+	$(CPP) -c newmat1.cpp -o obj/newmat1.o $(CXXFLAGS)
+
+obj/newmat2.o: newmat2.cpp
+	$(CPP) -c newmat2.cpp -o obj/newmat2.o $(CXXFLAGS)
+
+obj/newmat3.o: newmat3.cpp
+	$(CPP) -c newmat3.cpp -o obj/newmat3.o $(CXXFLAGS)
+
+obj/newmat4.o: newmat4.cpp
+	$(CPP) -c newmat4.cpp -o obj/newmat4.o $(CXXFLAGS)
+
+obj/newmat5.o: newmat5.cpp
+	$(CPP) -c newmat5.cpp -o obj/newmat5.o $(CXXFLAGS)
+
+obj/newmat6.o: newmat6.cpp
+	$(CPP) -c newmat6.cpp -o obj/newmat6.o $(CXXFLAGS)
+
+obj/newmat7.o: newmat7.cpp
+	$(CPP) -c newmat7.cpp -o obj/newmat7.o $(CXXFLAGS)
+
+obj/newmat8.o: newmat8.cpp
+	$(CPP) -c newmat8.cpp -o obj/newmat8.o $(CXXFLAGS)
+
+obj/newmat9.o: newmat9.cpp
+	$(CPP) -c newmat9.cpp -o obj/newmat9.o $(CXXFLAGS)
+
+obj/newmatex.o: newmatex.cpp
+	$(CPP) -c newmatex.cpp -o obj/newmatex.o $(CXXFLAGS)
+
+obj/newmatnl.o: newmatnl.cpp
+	$(CPP) -c newmatnl.cpp -o obj/newmatnl.o $(CXXFLAGS)
+
+obj/newmatrm.o: newmatrm.cpp
+	$(CPP) -c newmatrm.cpp -o obj/newmatrm.o $(CXXFLAGS)
+
+obj/nl_ex.o: nl_ex.cpp
+	$(CPP) -c nl_ex.cpp -o obj/nl_ex.o $(CXXFLAGS)
+
+obj/nm_ex1.o: nm_ex1.cpp
+	$(CPP) -c nm_ex1.cpp -o obj/nm_ex1.o $(CXXFLAGS)
+
+obj/nm_ex2.o: nm_ex2.cpp
+	$(CPP) -c nm_ex2.cpp -o obj/nm_ex2.o $(CXXFLAGS)
+
+obj/nm_ex3.o: nm_ex3.cpp
+	$(CPP) -c nm_ex3.cpp -o obj/nm_ex3.o $(CXXFLAGS)
+
+obj/nm_misc.o: nm_misc.cpp
+	$(CPP) -c nm_misc.cpp -o obj/nm_misc.o $(CXXFLAGS)
+
+obj/sl_ex.o: sl_ex.cpp
+	$(CPP) -c sl_ex.cpp -o obj/sl_ex.o $(CXXFLAGS)
+
+obj/solution.o: solution.cpp
+	$(CPP) -c solution.cpp -o obj/solution.o $(CXXFLAGS)
+
+obj/sort.o: sort.cpp
+	$(CPP) -c sort.cpp -o obj/sort.o $(CXXFLAGS)
+
+obj/submat.o: submat.cpp
+	$(CPP) -c submat.cpp -o obj/submat.o $(CXXFLAGS)
+
+obj/svd.o: svd.cpp
+	$(CPP) -c svd.cpp -o obj/svd.o $(CXXFLAGS)
+
+obj/test_exc.o: test_exc.cpp
+	$(CPP) -c test_exc.cpp -o obj/test_exc.o $(CXXFLAGS)
+
+obj/tmt.o: tmt.cpp
+	$(CPP) -c tmt.cpp -o obj/tmt.o $(CXXFLAGS)
+
+obj/tmt1.o: tmt1.cpp
+	$(CPP) -c tmt1.cpp -o obj/tmt1.o $(CXXFLAGS)
+
+obj/tmt2.o: tmt2.cpp
+	$(CPP) -c tmt2.cpp -o obj/tmt2.o $(CXXFLAGS)
+
+obj/tmt3.o: tmt3.cpp
+	$(CPP) -c tmt3.cpp -o obj/tmt3.o $(CXXFLAGS)
+
+obj/tmt4.o: tmt4.cpp
+	$(CPP) -c tmt4.cpp -o obj/tmt4.o $(CXXFLAGS)
+
+obj/tmt5.o: tmt5.cpp
+	$(CPP) -c tmt5.cpp -o obj/tmt5.o $(CXXFLAGS)
+
+obj/tmt6.o: tmt6.cpp
+	$(CPP) -c tmt6.cpp -o obj/tmt6.o $(CXXFLAGS)
+
+obj/tmt7.o: tmt7.cpp
+	$(CPP) -c tmt7.cpp -o obj/tmt7.o $(CXXFLAGS)
+
+obj/tmt8.o: tmt8.cpp
+	$(CPP) -c tmt8.cpp -o obj/tmt8.o $(CXXFLAGS)
+
+obj/tmt9.o: tmt9.cpp
+	$(CPP) -c tmt9.cpp -o obj/tmt9.o $(CXXFLAGS)
+
+obj/tmta.o: tmta.cpp
+	$(CPP) -c tmta.cpp -o obj/tmta.o $(CXXFLAGS)
+
+obj/tmtb.o: tmtb.cpp
+	$(CPP) -c tmtb.cpp -o obj/tmtb.o $(CXXFLAGS)
+
+obj/tmtc.o: tmtc.cpp
+	$(CPP) -c tmtc.cpp -o obj/tmtc.o $(CXXFLAGS)
+
+obj/tmtd.o: tmtd.cpp
+	$(CPP) -c tmtd.cpp -o obj/tmtd.o $(CXXFLAGS)
+
+obj/tmte.o: tmte.cpp
+	$(CPP) -c tmte.cpp -o obj/tmte.o $(CXXFLAGS)
+
+obj/tmtf.o: tmtf.cpp
+	$(CPP) -c tmtf.cpp -o obj/tmtf.o $(CXXFLAGS)
+
+obj/tmtg.o: tmtg.cpp
+	$(CPP) -c tmtg.cpp -o obj/tmtg.o $(CXXFLAGS)
+
+obj/tmth.o: tmth.cpp
+	$(CPP) -c tmth.cpp -o obj/tmth.o $(CXXFLAGS)
+
+obj/tmti.o: tmti.cpp
+	$(CPP) -c tmti.cpp -o obj/tmti.o $(CXXFLAGS)
+
+obj/tmtj.o: tmtj.cpp
+	$(CPP) -c tmtj.cpp -o obj/tmtj.o $(CXXFLAGS)
+
+obj/tmtk.o: tmtk.cpp
+	$(CPP) -c tmtk.cpp -o obj/tmtk.o $(CXXFLAGS)
+
+obj/tmtl.o: tmtl.cpp
+	$(CPP) -c tmtl.cpp -o obj/tmtl.o $(CXXFLAGS)
+
+obj/tmtm.o: tmtm.cpp
+	$(CPP) -c tmtm.cpp -o obj/tmtm.o $(CXXFLAGS)
