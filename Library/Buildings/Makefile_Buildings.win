@@ -1,0 +1,58 @@
+
+#
+#    Copyright 2010 University of Twente and Delft University of Technology
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+
+# Project: Buildings
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -g -Dwindows -w -Wno-deprecated
+CC   = gcc.exe -g -Dwindows
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/Walls.o obj/AlignFaces.o obj/Building.o obj/BuildingPart.o obj/Buildings.o obj/FittingParameters.o obj/HeightJumps.o obj/Intersections.o obj/LPbuildings.o obj/ParallelFaces.o obj/Partitioning.o obj/PlaneFit.o obj/Reconstruct.o obj/RoughContours.o obj/House.o obj/HouseGraph.o obj/HouseMap.o obj/PartitioningRules.o obj/Segment2D.o obj/Segment.o $(RES)
+LIBS =  
+INCS = -I"include"  -I"../LaserScan/include"  -I"../Photogrammetry/include"
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libBuildings.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(MAPPING_LIB_DIR)/libBuildings.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	ar r $(BIN) $(OBJ)
+	ranlib $(BIN)
+
+obj/%.o: src/%.c
+	$(CC) -c src/$*.c -o obj/$*.o $(CFLAGS)
+
+obj/%.o: src/%.cc
+	$(CPP) -c src/$*.cc -o obj/$*.o $(CXXFLAGS)

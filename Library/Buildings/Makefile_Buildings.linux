@@ -1,0 +1,113 @@
+
+#
+#    Copyright 2010 University of Twente and Delft University of Technology
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+
+# Project: Buildings
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++
+CC   = gcc
+WINDRES = windres
+RES  = 
+OBJ  = obj/Walls.o obj/AlignFaces.o obj/Building.o obj/BuildingPart.o obj/Buildings.o obj/FittingParameters.o obj/HeightJumps.o obj/Intersections.o obj/LPbuildings.o obj/ParallelFaces.o obj/Partitioning.o obj/PlaneFit.o obj/Reconstruct.o obj/RoughContours.o obj/House.o obj/HouseGraph.o obj/HouseMap.o obj/PartitioningRules.o obj/Segment2D.o obj/Segment.o $(RES)
+LINKOBJ  = obj/Walls.o obj/AlignFaces.o obj/Building.o obj/BuildingPart.o obj/Buildings.o obj/FittingParameters.o obj/HeightJumps.o obj/Intersections.o obj/LPbuildings.o obj/ParallelFaces.o obj/Partitioning.o obj/PlaneFit.o obj/Reconstruct.o obj/RoughContours.o obj/House.o obj/HouseGraph.o obj/HouseMap.o obj/PartitioningRules.o obj/Segment2D.o obj/Segment.o $(RES)
+LIBS =  
+INCS =  -I/usr/include/c++/3.2.2 -I"include"  -I"../LaserScan/include"  -I"../Photogrammetry/include"  -I"../../Foreign/NR/utils" 
+CXXINCS =  -I/usr/include/c++/3.2.2 -I"include"  -I"../LaserScan/include"  -I"../Photogrammetry/include"  -I"../../Foreign/NR/utils"  
+BIN  = $(MAPPING_LIB_DIR)/libBuildings.a
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/Walls.o: src/Walls.cc
+	$(CPP) -c src/Walls.cc -o obj/Walls.o $(CXXFLAGS)
+
+obj/AlignFaces.o: src/AlignFaces.cc
+	$(CPP) -c src/AlignFaces.cc -o obj/AlignFaces.o $(CXXFLAGS)
+
+obj/Building.o: src/Building.cc
+	$(CPP) -c src/Building.cc -o obj/Building.o $(CXXFLAGS)
+
+obj/BuildingPart.o: src/BuildingPart.cc
+	$(CPP) -c src/BuildingPart.cc -o obj/BuildingPart.o $(CXXFLAGS)
+
+obj/Buildings.o: src/Buildings.cc
+	$(CPP) -c src/Buildings.cc -o obj/Buildings.o $(CXXFLAGS)
+
+obj/FittingParameters.o: src/FittingParameters.cc
+	$(CPP) -c src/FittingParameters.cc -o obj/FittingParameters.o $(CXXFLAGS)
+
+obj/HeightJumps.o: src/HeightJumps.cc
+	$(CPP) -c src/HeightJumps.cc -o obj/HeightJumps.o $(CXXFLAGS)
+
+obj/Intersections.o: src/Intersections.cc
+	$(CPP) -c src/Intersections.cc -o obj/Intersections.o $(CXXFLAGS)
+
+obj/LPbuildings.o: src/LPbuildings.cc
+	$(CPP) -c src/LPbuildings.cc -o obj/LPbuildings.o $(CXXFLAGS)
+
+obj/ParallelFaces.o: src/ParallelFaces.cc
+	$(CPP) -c src/ParallelFaces.cc -o obj/ParallelFaces.o $(CXXFLAGS)
+
+obj/Partitioning.o: src/Partitioning.cc
+	$(CPP) -c src/Partitioning.cc -o obj/Partitioning.o $(CXXFLAGS)
+
+obj/PlaneFit.o: src/PlaneFit.cc
+	$(CPP) -c src/PlaneFit.cc -o obj/PlaneFit.o $(CXXFLAGS)
+
+obj/Reconstruct.o: src/Reconstruct.cc
+	$(CPP) -c src/Reconstruct.cc -o obj/Reconstruct.o $(CXXFLAGS)
+
+obj/RoughContours.o: src/RoughContours.cc
+	$(CPP) -c src/RoughContours.cc -o obj/RoughContours.o $(CXXFLAGS)
+
+obj/House.o: src/House.cc
+	$(CPP) -c src/House.cc -o obj/House.o $(CXXFLAGS)
+
+obj/HouseGraph.o: src/HouseGraph.cc
+	$(CPP) -c src/HouseGraph.cc -o obj/HouseGraph.o $(CXXFLAGS)
+
+obj/HouseMap.o: src/HouseMap.cc
+	$(CPP) -c src/HouseMap.cc -o obj/HouseMap.o $(CXXFLAGS)
+
+obj/PartitioningRules.o: src/PartitioningRules.cc
+	$(CPP) -c src/PartitioningRules.cc -o obj/PartitioningRules.o $(CXXFLAGS)
+
+obj/Segment2D.o: src/Segment2D.cc
+	$(CPP) -c src/Segment2D.cc -o obj/Segment2D.o $(CXXFLAGS)
+
+obj/Segment.o: src/Segment.cc
+	$(CPP) -c src/Segment.cc -o obj/Segment.o $(CXXFLAGS)
