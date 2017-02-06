@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LASvalidator>
+  <report>
+    <file>
+      <name>test.laz</name>
+      <path>test.laz</path>
+      <version>1.2</version>
+      <system_identifier></system_identifier>
+      <generating_software></generating_software>
+      <point_data_format>0</point_data_format>
+      <CRS>not valid or not specified</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <fail>
+        <variable>file creation day</variable>
+        <note>not set</note>
+      </fail>
+      <fail>
+        <variable>file creation year</variable>
+        <note>not set</note>
+      </fail>
+      <fail>
+        <variable>number of point by return</variable>
+        <note>the number of 1st return(s) is 969449 and not 0</note>
+      </fail>
+      <fail>
+        <variable>min x</variable>
+        <note>should be 933.19 and not 93319.58</note>
+      </fail>
+      <fail>
+        <variable>min y</variable>
+        <note>should be 404362.05 and not 436205.26</note>
+      </fail>
+      <fail>
+        <variable>CRS</variable>
+        <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
+      </fail>
+      <warning>
+        <variable>system identifier</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
+      <warning>
+        <variable>generating software</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
+    </details>
+  </report>
+  <total>
+    fail
+    <details>
+      <pass>0</pass>
+      <warning>0</warning>
+      <fail>1</fail>
+    </details>
+  </total>
+</LASvalidator>
