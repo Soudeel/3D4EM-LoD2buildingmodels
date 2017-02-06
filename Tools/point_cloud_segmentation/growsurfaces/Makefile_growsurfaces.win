@@ -1,0 +1,56 @@
+#
+#    Copyright 2010 University of Twente and Delft University of Technology
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+# Project: growsurfaces
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = growsurfaces.o main.o $(RES)
+LINKOBJ  = growsurfaces.o main.o $(RES)
+LIBS = -L $(MAPPING_LIB_DIR) -lLaserScan -lPhotogrammetry -llas -lEispack -lLinpack -lANN -lnewmat -lgfortran  -g3 
+INCS = -I"../../../Library/LaserScan/include"  -I"../../../Library/Photogrammetry/include"
+CXXINCS = $(INCS)
+BIN  = ../../bin/growsurfaces.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../../bin/growsurfaces.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "..\..\bin\growsurfaces.exe" $(LIBS)
+
+growsurfaces.o: growsurfaces.cc
+	$(CPP) -c growsurfaces.cc -o growsurfaces.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
