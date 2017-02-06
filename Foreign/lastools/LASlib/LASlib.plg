@@ -1,0 +1,127 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LASlib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\Martin\AppData\Local\Temp\RSP2895.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\laszip\src" /I "inc" /I "..\laszip\inc" /I "stl" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/LASlib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\lastools\laslib\src\lasfilter.cpp"
+"D:\lastools\laslib\src\lasindex.cpp"
+"D:\lastools\laslib\src\lasreader.cpp"
+"D:\lastools\laslib\src\lasreader_asc.cpp"
+"D:\lastools\laslib\src\lasreader_bil.cpp"
+"D:\lastools\laslib\src\lasreader_bin.cpp"
+"D:\lastools\laslib\src\lasreader_las.cpp"
+"D:\lastools\laslib\src\lasreader_qfit.cpp"
+"D:\lastools\laslib\src\lasreader_shp.cpp"
+"D:\lastools\laslib\src\lasreader_txt.cpp"
+"D:\lastools\laslib\src\lasreaderbuffered.cpp"
+"D:\lastools\laslib\src\lasreadermerged.cpp"
+"D:\lastools\laslib\src\lasreaderpipeon.cpp"
+"D:\lastools\LASzip\src\lasreadpoint.cpp"
+"D:\lastools\laslib\src\lastransform.cpp"
+"D:\lastools\laslib\src\lasutility.cpp"
+"D:\lastools\laslib\src\laswaveform13reader.cpp"
+"D:\lastools\laslib\src\laswaveform13writer.cpp"
+"D:\lastools\LASzip\src\laswritepoint.cpp"
+"D:\lastools\laslib\src\laswriter.cpp"
+"D:\lastools\laslib\src\laswriter_bin.cpp"
+"D:\lastools\laslib\src\laswriter_las.cpp"
+"D:\lastools\laslib\src\laswriter_qfit.cpp"
+"D:\lastools\laslib\src\laswriter_txt.cpp"
+"D:\lastools\laslib\src\laswriter_wrl.cpp"
+"D:\lastools\LASzip\src\laszip.cpp"
+]
+Creating command line "cl.exe @C:\Users\Martin\AppData\Local\Temp\RSP2895.tmp" 
+Creating temporary file "C:\Users\Martin\AppData\Local\Temp\RSP2896.tmp" with contents
+[
+/nologo /out:"Debug\LASlib.lib" 
+.\Debug\arithmeticdecoder.obj
+.\Debug\arithmeticencoder.obj
+.\Debug\arithmeticmodel.obj
+.\Debug\fopen_compressed.obj
+.\Debug\integercompressor.obj
+.\Debug\lasfilter.obj
+.\Debug\lasindex.obj
+.\Debug\lasinterval.obj
+.\Debug\lasquadtree.obj
+.\Debug\lasreader.obj
+.\Debug\lasreader_asc.obj
+.\Debug\lasreader_bil.obj
+.\Debug\lasreader_bin.obj
+.\Debug\lasreader_las.obj
+.\Debug\lasreader_qfit.obj
+.\Debug\lasreader_shp.obj
+.\Debug\lasreader_txt.obj
+.\Debug\lasreaderbuffered.obj
+.\Debug\lasreadermerged.obj
+.\Debug\lasreaderpipeon.obj
+.\Debug\lasreaditemcompressed_v1.obj
+.\Debug\lasreaditemcompressed_v2.obj
+.\Debug\lasreadpoint.obj
+.\Debug\lasspatial.obj
+.\Debug\lastransform.obj
+.\Debug\lasutility.obj
+.\Debug\laswaveform13reader.obj
+.\Debug\laswaveform13writer.obj
+.\Debug\laswriteitemcompressed_v1.obj
+.\Debug\laswriteitemcompressed_v2.obj
+.\Debug\laswritepoint.obj
+.\Debug\laswriter.obj
+.\Debug\laswriter_bin.obj
+.\Debug\laswriter_las.obj
+.\Debug\laswriter_qfit.obj
+.\Debug\laswriter_txt.obj
+.\Debug\laswriter_wrl.obj
+.\Debug\laszip.obj
+]
+Creating command line "link.exe -lib @C:\Users\Martin\AppData\Local\Temp\RSP2896.tmp"
+<h3>Output Window</h3>
+Compiling...
+laswaveform13writer.cpp
+laswriter.cpp
+lasfilter.cpp
+lasindex.cpp
+lasreader.cpp
+lasreader_asc.cpp
+lasreader_bil.cpp
+lasreader_bin.cpp
+lasreader_las.cpp
+lasreader_qfit.cpp
+lasreader_shp.cpp
+lasreader_txt.cpp
+lasreaderbuffered.cpp
+lasreadermerged.cpp
+lasreaderpipeon.cpp
+lasreadpoint.cpp
+lastransform.cpp
+lasutility.cpp
+laswaveform13reader.cpp
+laswritepoint.cpp
+laswriter_bin.cpp
+laswriter_las.cpp
+laswriter_qfit.cpp
+laswriter_txt.cpp
+laswriter_wrl.cpp
+laszip.cpp
+Creating library...
+Creating temporary file "C:\Users\Martin\AppData\Local\Temp\RSP55B2.bat" with contents
+[
+@echo off
+copy Debug\LASlib.lib libD\LASlib.lib
+]
+Creating command line "C:\Users\Martin\AppData\Local\Temp\RSP55B2.bat"
+
+        1 file(s) copied.
+
+
+
+<h3>Results</h3>
+LASlib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
