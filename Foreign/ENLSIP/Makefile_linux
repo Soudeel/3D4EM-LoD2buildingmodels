@@ -1,0 +1,30 @@
+CXX = g++
+CC = gcc
+CXXFLAGS = -O4 -w -I../newmat -I../f2c
+CC = gcc 
+
+%.o:           	%.cpp
+		$(CXX) $(CXXFLAGS) -c $*.cpp
+
+%.o:           	%.cc
+		$(CXX) $(CXXFLAGS) -c $*.cc
+		
+%.o:           	%.c
+		$(CC) $(CXXFLAGS) -c $*.c		
+
+LIB = $(MAPPING_LIB_DIR)/libENLSIP.a
+
+everything:  $(LIB)
+
+clean :
+	rm -f *.o & rm -f $(LIB) ;
+
+OBJ_C = dblenls.o  dblmod2nls.o  dblredunls.o  dblwrkset.o
+OBJ_CC = dblTest.o  ENLSIPFitting.o
+OBJ = $(OBJ_C) $(OBJ_CC)
+
+
+$(LIB):   	$(OBJ)
+		$(AR) -cr $@ $(OBJ)
+		ranlib $@
+

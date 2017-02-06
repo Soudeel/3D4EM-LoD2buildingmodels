@@ -1,0 +1,45 @@
+# Project: ENLSIP
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = obj/dblenls.o obj/dblmod2nls.o obj/dblredunls.o obj/dblTest.o obj/dblwrkset.o obj/ENLSIPFitting.o $(RES)
+LINKOBJ  = obj/dblenls.o obj/dblmod2nls.o obj/dblredunls.o obj/dblTest.o obj/dblwrkset.o obj/ENLSIPFitting.o $(RES)
+# INCS =  -I"C:/Dev-Cpp/MinGW32/include"  -I"../f2c"  -I"../newmat" 
+INCS =  -I"../newmat" 
+CXXINCS =  $(INCS)
+BIN  = $(MAPPING_LIB_DIR)/libENLSIP.a
+CXXFLAGS = $(CXXINCS) -Duse_namespace 
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/dblenls.o: dblenls.c
+	$(CC) -c dblenls.c -o obj/dblenls.o $(CFLAGS)
+
+obj/dblmod2nls.o: dblmod2nls.c
+	$(CC) -c dblmod2nls.c -o obj/dblmod2nls.o $(CFLAGS)
+
+obj/dblredunls.o: dblredunls.c
+	$(CC) -c dblredunls.c -o obj/dblredunls.o $(CFLAGS)
+
+obj/dblTest.o: dblTest.cc
+	$(CPP) -c dblTest.cc -o obj/dblTest.o $(CXXFLAGS)
+
+obj/dblwrkset.o: dblwrkset.c
+	$(CC) -c dblwrkset.c -o obj/dblwrkset.o $(CFLAGS)
+
+obj/ENLSIPFitting.o: ENLSIPFitting.cc
+	$(CPP) -c ENLSIPFitting.cc -o obj/ENLSIPFitting.o $(CXXFLAGS)
