@@ -1,0 +1,108 @@
+--------------------------------------------------------------------------
+
+  LICENSE AGREEMENT:
+
+  This software is distributed WITHOUT ANY WARRANTY and without even the
+  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+--------------------------------------------------------------------------
+
+  Please note that there are THREE parts to LAStools. One is OPEN source
+  and licensed as standard LGPL. The second is also OPEN source and LGPL
+  but has a small restriction (R). The third is CLOSED source and requires
+  licensing for most commercial or government use. If you are unsure about
+  your particular use case please email to 'martin@rapidlasso.com' before
+  using LAStools. For evaluation purposes you can test LAStools as much as
+  you need to.
+
+--------------------------------------------------------------------------
+
+  These LAStools are open-source standard LGPL (see COPYING.txt).
+
+    * lasvalidate.exe
+    * LASzip (when used via the DLL in the LASzip folder)
+    * LASzip (when used via the DLL from http://laszip.org)
+
+--------------------------------------------------------------------------
+
+  These LAStools are open-source LGPL (see COPYING.txt) for every entity
+  on earth except those that are listed under (R). Please contact me if
+  want to purchase an entirely different licensing model for proprietary
+  use (commercial or governmental) or if either you or your client are
+  listed under or co-operates with any of the entities listed under (R).
+
+    * lasview
+    * laszip
+    * las2las
+    * lasinfo
+    * lasindex
+    * lasdiff
+    * lasmerge
+    * las2txt & txt2las
+    * lasprecision
+    * LASzip (when used via the LASlib library) (+)
+    * LASlib (with LASzip) - the API used by LAStools.
+
+  (R) Restricted entities are: Argonne National Laboratory, Brookhaven
+  National Laboratory, Lawrence Livermore National Laboratory, Jet
+  Propulsion Lab, Los Alamos National Laboratory, Oak Ridge National
+  Laboratory, Pacific Northwest National Laboratory, Sandia National
+  Laboratories, Lincoln Laboratory, Savannah River National Laboratory.
+
+  (+) Our lossless LAS compressor LASzip is also available with a standard
+  unrestricted LGPL license outside of LASlib. You can either only use the
+  stand-alone source code DLL distribution from the LASzip folder or go to
+  http://laszip.org. This way you can use LASzip without restriction (R).
+
+--------------------------------------------------------------------------
+
+  The following LAStools require licensing for all commercial & government
+  use. They can however be used freely for non-profit personal, non-profit
+  educational, or non-profit humanitarian purposes assuming that they are
+  strictly non-military. Imagine you would have to personally convince me
+  that you will better the world (according to my definition) ... (-:
+
+    * blast2dem
+    * blast2iso
+
+    * lasground
+    * lasheight
+    * lasclassify
+    * lastool
+    * lasgrid & lascanopy
+    * lasboundary
+    * lascontrol
+    * lasoverlap
+    * lasoverage
+    * lasduplicate
+    * lassplit
+    * las2tin
+    * las2iso
+    * las2dem
+    * lasthin & lasnoise
+    * lassort
+    * lastile
+    * lasclip
+    * las2shp & shp2las.
+
+--------------------------------------------------------------------------
+
+  If you want to use LAStools please contact me for licensing. You can
+
+  (a) license the existing executables for production
+  (b) license the existing executables for inclusion in your software 
+ 
+  You can also hire me as a consultant to either create LAStools tailored
+  to your particular needs.
+
+--------------------------------------------------------------------------
+
+  PROGRAMMERS:
+  
+  martin@rapidlasso.com
+  
+--------------------------------------------------------------------------
+
+  COPYRIGHT:
+  
+  (c) 2007-2013, martin isenburg, rapidlasso - fast tools to catch reality
