@@ -1,0 +1,29 @@
+# Project: 3DBuilding
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = 3DBuilding.o $(RES)
+LINKOBJ  = 3DBuilding.o $(RES)
+LIBS = -L $(MAPPING_LIB_DIR) -lInferenceEngineLib  -lBuildings -lLaserScan -lPhotogrammetry -llas -lEispack -lLinpack -lANN -lnewmat -lgfortran  -L"D:/Program Files/Dev-Cpp/lib" "d:/Dev-Cpp/lib/libCGAL.dll.a" "d:/Dev-Cpp/lib/libgdal.a"  "d:/Dev-Cpp/lib/libboost_system-mgw47-mt-1_62.a" "d:/Dev-Cpp/lib/libboost_thread-mgw47-mt-1_62.a"   "d:/Dev-Cpp/lib/libmpfr.a" "d:/Dev-Cpp/lib/libgmp.a" -lws2_32 -g3
+INCS = -I"../../../Library/LaserScan/include"  -I"../../../Library/Photogrammetry/include"  -I"../../../Library/Buildings/include" -I"../InferenceEngineLib"
+CXXINCS = $(INCS)
+BIN      = ../../bin/3DBuilding.exe
+CXXFLAGS = $(CXXINCS)  -Wfatal-errors -g3
+CFLAGS   = $(INCS)  -Wfatal-errors -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+3DBuilding.o: 3DBuilding.cpp
+	$(CPP) -c 3DBuilding.cpp -o 3DBuilding.o $(CXXFLAGS)

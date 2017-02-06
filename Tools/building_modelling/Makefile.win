@@ -1,0 +1,52 @@
+#
+#    Copyright 2010 University of Twente and Delft University of Technology
+# 
+#       This file is part of the Mapping libraries and tools, developed
+#  for research, education and projects in photogrammetry and laser scanning.
+#
+#  The Mapping libraries and tools are free software: you can redistribute it
+#    and/or modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the License,
+#                   or (at your option) any later version.
+#
+# The Mapping libraries and tools are distributed in the hope that it will be
+#    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#                GNU General Public License for more details.
+#
+#      You should have received a copy of the GNU General Public License
+#          along with the Mapping libraries and tools.  If not, see
+#                      <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------
+
+
+all:
+	$(MAKE) -C 3DBuildingMC -f 3DBuildingMC_Makefile.win
+	$(MAKE) -C 3DIndoor -f 3DIndoor_Makefile.win
+	$(MAKE) -C bgt_buildings -f Makefile_bgt_buildings.win
+	$(MAKE) -C datadrivenreco -f Makefile_datadrivenreco.win
+	$(MAKE) -C Gml2Pcm -f Makefile_Gml2Pcm.win
+	$(MAKE) -C InferenceEngineLib -f inference_Makefile.win
+	$(MAKE) -C match2ref -f Makefile_match2ref.win
+	$(MAKE) -C matchdatasets -f Makefile_matchdatasets.win
+	$(MAKE) -C matchgraphs -f Makefile_matchgraphs.win
+	$(MAKE) -C modeldrivenhypo -f Makefile_modeldrivenhypo.win
+	$(MAKE) -C top3d -f Makefile_top3d.win
+	$(MAKE) -C top3d_buildings -f Makefile_top3d_buildings.win
+	$(MAKE) -C pcm -f Makefile
+
+clean:
+	$(MAKE) -C 3DBuildingMC -f 3DBuildingMC_Makefile.win clean
+	$(MAKE) -C 3DIndoor -f 3DIndoor_Makefile.win clean
+	$(MAKE) -C bgt_buildings -f Makefile_bgt_buildings.win clean
+	$(MAKE) -C datadrivenreco -f Makefile_datadrivenreco.win clean
+	$(MAKE) -C Gml2Pcm -f Makefile_Gml2Pcm.win clean
+	$(MAKE) -C InferenceEngineLib -f inference_Makefile.win clean
+	$(MAKE) -C match2ref -f Makefile_match2ref.win clean
+	$(MAKE) -C matchdatasets -f Makefile_matchdatasets.win clean
+	$(MAKE) -C matchgraphs -f Makefile_matchgraphs.win clean
+	$(MAKE) -C modeldrivenhypo -f Makefile_modeldrivenhypo.win clean
+	$(MAKE) -C top3d -f Makefile_top3d.win clean
+	$(MAKE) -C top3d_buildings -f Makefile_top3d_buildings.win clean
+	$(MAKE) -C pcm -f Makefile clean

@@ -1,0 +1,29 @@
+# Project: 3DBuilding
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = 3DBuilding.o $(RES)
+LINKOBJ  = 3DBuilding.o $(RES)
+LIBS     = -L"D:/Program Files/Dev-Cpp/MinGW64/lib" -L"%path%/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"$(MAPPING_LIB_DIR)" -L"D:/Program Files/Dev-Cpp/lib" -lInferenceEngineLib -lLaserScan -lPhotogrammetry -lEispack -lLinpack -lANN -lnewmat -lgfortran -g3 -llas -lBuildings -lgdi32  "../../../../Program Files/Dev-Cpp/lib/libboost_system-mgw49-mt-1_62.a" "../../../../Program Files/Dev-Cpp/lib/libCGAL.dll.a" "../../../../Program Files/Dev-Cpp/lib/libgmp.a" "../../../../Program Files/Dev-Cpp/lib/libmpfr.a"  -g3
+INCS     = -I"D:/Program Files/Dev-Cpp/MinGW64/include" -I"%path%/MinGW64/x86_64-w64-mingw32/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"../../../Library/LaserScan/include" -I"../../../Library/Photogrammetry/include" -I"../../../Library/Buildings/include" -I"../InferenceEngineLib"
+CXXINCS  = -I"D:/Program Files/Dev-Cpp/MinGW64/include" -I"%path%/MinGW64/x86_64-w64-mingw32/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"../../../Library/LaserScan/include" -I"../../../Library/Photogrammetry/include" -I"../../../Library/Buildings/include" -I"../InferenceEngineLib"
+BIN      = ../../bin/3DBuilding.exe
+CXXFLAGS = $(CXXINCS)  -Wfatal-errors -g3
+CFLAGS   = $(INCS)  -Wfatal-errors -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+3DBuilding.o: 3DBuilding.cpp
+	$(CPP) -c 3DBuilding.cpp -o 3DBuilding.o $(CXXFLAGS)

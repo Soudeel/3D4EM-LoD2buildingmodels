@@ -1,0 +1,117 @@
+# Project: InferenceEngineLib
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = obj/AdjacentGraph.o obj/AlphaShape.o obj/BoundaryLine.o obj/ConstraintLSF.o obj/GloblVariable.o obj/GraphEditDictionary.o obj/InferenceEngine.o obj/MySystemFunctions.o obj/PCMBuildFuctions.o obj/StatisticInfo.o obj/test_ConstraintLSF.o obj/TopologyGraph.o obj/XNodeFaces.o obj/FootPrintFunctions.o obj/RoofTopGraph.o obj/PolylineGeneralization.o obj/FaceInfo.o obj/IOWorker.o obj/PlanarPartition.o obj/PolygonHandle.o obj/AnchorPoints.o obj/ModelBldLoD1.o obj/test_cgal_CT.o obj/OccupyMap.o obj/ModelBldWithAnchorPnt.o obj/ModelBldWithRTAFP.o obj/ModelBldWithRoofTopGraph.o obj/ModelBldWithOccMap.o obj/ModelBldWithFootPrint.o obj/IndexPointInPolygon.o $(RES)
+LINKOBJ  = obj/AdjacentGraph.o obj/AlphaShape.o obj/BoundaryLine.o obj/ConstraintLSF.o obj/GloblVariable.o obj/GraphEditDictionary.o obj/InferenceEngine.o obj/MySystemFunctions.o obj/PCMBuildFuctions.o obj/StatisticInfo.o obj/test_ConstraintLSF.o obj/TopologyGraph.o obj/XNodeFaces.o obj/FootPrintFunctions.o obj/RoofTopGraph.o obj/PolylineGeneralization.o obj/FaceInfo.o obj/IOWorker.o obj/PlanarPartition.o obj/PolygonHandle.o obj/AnchorPoints.o obj/ModelBldLoD1.o obj/test_cgal_CT.o obj/OccupyMap.o obj/ModelBldWithAnchorPnt.o obj/ModelBldWithRTAFP.o obj/ModelBldWithRoofTopGraph.o obj/ModelBldWithOccMap.o obj/ModelBldWithFootPrint.o obj/IndexPointInPolygon.o $(RES)
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib" -L"%path%/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"D:/Dev-Cpp/lib" -L"../../../Development/lib" -L"../../../Library/lib" -lLaserScan -lPhotogrammetry -lEispack -lLinpack -lANN -lnewmat -lgfortran -g3 -llas -lBuildings -lgdi32  "d:/Dev-Cpp/lib/libboost_system-mgw49-mt-1_62.a" "d:/Dev-Cpp/lib/libCGAL.dll.a" "d:/Dev-Cpp/lib/libgmp.a" "d:/Dev-Cpp/lib/libmpfr.a" 
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"%path%/MinGW64/x86_64-w64-mingw32/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev-Cpp/include" -I"../../../Library/LaserScan/include" -I"../../../Library/Photogrammetry/include" -I"../../../Foreign/eigen" -I"../../../Library/Buildings/include" -I"../../../Foreign/ANN/include/ANN"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"%path%/MinGW64/x86_64-w64-mingw32/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"%path%/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"D:/Dev-Cpp/include" -I"../../../Library/LaserScan/include" -I"../../../Library/Photogrammetry/include" -I"../../../Foreign/eigen" -I"../../../Library/Buildings/include" -I"../../../Foreign/ANN/include/ANN"
+BIN      = $(MAPPING_LIB_DIR)/libInferenceEngineLib.a
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+obj/AdjacentGraph.o: AdjacentGraph.cpp
+	$(CPP) -c AdjacentGraph.cpp -o obj/AdjacentGraph.o $(CXXFLAGS)
+
+obj/AlphaShape.o: AlphaShape.cpp
+	$(CPP) -c AlphaShape.cpp -o obj/AlphaShape.o $(CXXFLAGS)
+
+obj/BoundaryLine.o: BoundaryLine.cpp
+	$(CPP) -c BoundaryLine.cpp -o obj/BoundaryLine.o $(CXXFLAGS)
+
+obj/ConstraintLSF.o: ConstraintLSF.cpp
+	$(CPP) -c ConstraintLSF.cpp -o obj/ConstraintLSF.o $(CXXFLAGS)
+
+obj/GloblVariable.o: GloblVariable.cpp
+	$(CPP) -c GloblVariable.cpp -o obj/GloblVariable.o $(CXXFLAGS)
+
+obj/GraphEditDictionary.o: GraphEditDictionary.cpp
+	$(CPP) -c GraphEditDictionary.cpp -o obj/GraphEditDictionary.o $(CXXFLAGS)
+
+obj/InferenceEngine.o: InferenceEngine.cpp
+	$(CPP) -c InferenceEngine.cpp -o obj/InferenceEngine.o $(CXXFLAGS)
+
+obj/MySystemFunctions.o: MySystemFunctions.cpp
+	$(CPP) -c MySystemFunctions.cpp -o obj/MySystemFunctions.o $(CXXFLAGS)
+
+obj/PCMBuildFuctions.o: PCMBuildFuctions.cpp
+	$(CPP) -c PCMBuildFuctions.cpp -o obj/PCMBuildFuctions.o $(CXXFLAGS)
+
+obj/StatisticInfo.o: StatisticInfo.cpp
+	$(CPP) -c StatisticInfo.cpp -o obj/StatisticInfo.o $(CXXFLAGS)
+
+obj/test_ConstraintLSF.o: test_ConstraintLSF.cpp
+	$(CPP) -c test_ConstraintLSF.cpp -o obj/test_ConstraintLSF.o $(CXXFLAGS)
+
+obj/TopologyGraph.o: TopologyGraph.cpp
+	$(CPP) -c TopologyGraph.cpp -o obj/TopologyGraph.o $(CXXFLAGS)
+
+obj/XNodeFaces.o: XNodeFaces.cpp
+	$(CPP) -c XNodeFaces.cpp -o obj/XNodeFaces.o $(CXXFLAGS)
+
+obj/FootPrintFunctions.o: FootPrintFunctions.cpp
+	$(CPP) -c FootPrintFunctions.cpp -o obj/FootPrintFunctions.o $(CXXFLAGS)
+
+obj/RoofTopGraph.o: RoofTopGraph.cpp
+	$(CPP) -c RoofTopGraph.cpp -o obj/RoofTopGraph.o $(CXXFLAGS)
+
+obj/PolylineGeneralization.o: PolylineGeneralization.cpp
+	$(CPP) -c PolylineGeneralization.cpp -o obj/PolylineGeneralization.o $(CXXFLAGS)
+
+obj/FaceInfo.o: PPrepair/FaceInfo.cpp
+	$(CPP) -c PPrepair/FaceInfo.cpp -o obj/FaceInfo.o $(CXXFLAGS)
+
+obj/IOWorker.o: PPrepair/IOWorker.cpp
+	$(CPP) -c PPrepair/IOWorker.cpp -o obj/IOWorker.o $(CXXFLAGS)
+
+obj/PlanarPartition.o: PPrepair/PlanarPartition.cpp
+	$(CPP) -c PPrepair/PlanarPartition.cpp -o obj/PlanarPartition.o $(CXXFLAGS)
+
+obj/PolygonHandle.o: PPrepair/PolygonHandle.cpp
+	$(CPP) -c PPrepair/PolygonHandle.cpp -o obj/PolygonHandle.o $(CXXFLAGS)
+
+obj/AnchorPoints.o: AnchorPoints.cpp
+	$(CPP) -c AnchorPoints.cpp -o obj/AnchorPoints.o $(CXXFLAGS)
+
+obj/ModelBldLoD1.o: ModelBldLoD1.cpp
+	$(CPP) -c ModelBldLoD1.cpp -o obj/ModelBldLoD1.o $(CXXFLAGS)
+
+obj/test_cgal_CT.o: test_cgal_CT.cpp
+	$(CPP) -c test_cgal_CT.cpp -o obj/test_cgal_CT.o $(CXXFLAGS)
+
+obj/OccupyMap.o: OccupyMap.cpp
+	$(CPP) -c OccupyMap.cpp -o obj/OccupyMap.o $(CXXFLAGS)
+
+obj/ModelBldWithAnchorPnt.o: ModelBldWithAnchorPnt.cpp
+	$(CPP) -c ModelBldWithAnchorPnt.cpp -o obj/ModelBldWithAnchorPnt.o $(CXXFLAGS)
+
+obj/ModelBldWithRTAFP.o: ModelBldWithRTAFP.cpp
+	$(CPP) -c ModelBldWithRTAFP.cpp -o obj/ModelBldWithRTAFP.o $(CXXFLAGS)
+
+obj/ModelBldWithRoofTopGraph.o: ModelBldWithRoofTopGraph.cpp
+	$(CPP) -c ModelBldWithRoofTopGraph.cpp -o obj/ModelBldWithRoofTopGraph.o $(CXXFLAGS)
+
+obj/ModelBldWithOccMap.o: ModelBldWithOccMap.cpp
+	$(CPP) -c ModelBldWithOccMap.cpp -o obj/ModelBldWithOccMap.o $(CXXFLAGS)
+
+obj/ModelBldWithFootPrint.o: ModelBldWithFootPrint.cpp
+	$(CPP) -c ModelBldWithFootPrint.cpp -o obj/ModelBldWithFootPrint.o $(CXXFLAGS)
+
+obj/IndexPointInPolygon.o: IndexPointInPolygon.cpp
+	$(CPP) -c IndexPointInPolygon.cpp -o obj/IndexPointInPolygon.o $(CXXFLAGS)
